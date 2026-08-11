@@ -90,9 +90,12 @@ body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 .heroA .eyebrow{color:oklch(0.9 0.05 80)}
 .heroA .hero-h1{color:var(--bg);text-shadow:0 1px 8px oklch(0.22 0.015 75/.5)}
 .heroA .hero-soft{color:oklch(0.93 0.01 80);text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
-.heroA .steps{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
-.heroA .gs{flex:1;min-width:180px;background:oklch(0.985 0.004 85/.13);backdrop-filter:blur(8px);border:1px solid oklch(0.985 0.004 85/.32);border-radius:var(--r-card);padding:var(--s4) var(--s5);color:var(--bg);font-size:var(--text-small)}
-.heroA .gs b{display:block;font-size:1rem;margin-bottom:2px}
+.heroA .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s7);align-items:center;width:100%}
+.heroA .tl-line{border-left:2px solid oklch(0.985 0.004 85/.65);padding-left:var(--s5);display:flex;flex-direction:column}
+.heroA .tl-line .st{position:relative;padding:var(--s3) 0;color:var(--bg)}
+.heroA .tl-line .st::before{content:"";position:absolute;left:calc(-1 * var(--s5) - 7px);top:24px;width:12px;height:12px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 3px oklch(0.985 0.004 85/.3)}
+.heroA .tl-line b{display:block;font-size:1.05rem;text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
+.heroA .tl-line span{color:oklch(0.9 0.012 80);font-size:var(--text-small);text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
 
 /* 시안 2 — 스플릿 포토 */
 .heroB{padding:var(--s8) 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
@@ -210,7 +213,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 @media (max-width:860px){
   .heroB .grid,.bd,.oneday .box{grid-template-columns:1fr}
   .heroA{min-height:auto;padding-top:var(--s8)}
-  .heroA .steps{flex-direction:column}
+  .heroA .grid{grid-template-columns:1fr;gap:var(--s6)}
   .heroC .cards{grid-template-columns:1fr;margin-top:-40px}
   .tl,.dl-grid,.edu .mod{grid-template-columns:1fr}
   .tl{gap:var(--s7)}
@@ -237,18 +240,20 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   <section class="heroA hv hv1" aria-label="프로그램 소개">
     <img class="bg" src="/img/vision-dawn.jpg" alt="" width="1920" height="1200" fetchpriority="high">
     <div class="scrim" aria-hidden="true"></div>
-    <div class="container">
-      <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
-      <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
-      <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
-      <div class="cta-row reveal">
-        <a class="btn" href="#contact">무료 사전 진단 신청</a>
-        <a class="btn btn-ghost" href="#builder">구성과 비용 보기</a>
+    <div class="container grid">
+      <div>
+        <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
+        <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
+        <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
+        <div class="cta-row reveal">
+          <a class="btn" href="#contact">무료 사전 진단 신청</a>
+          <a class="btn btn-ghost" href="#builder">구성과 비용 보기</a>
+        </div>
       </div>
-      <div class="steps reveal">
-        <div class="gs"><b>1 — 진단</b>1주 · 범위 확정</div>
-        <div class="gs"><b>2 — 구축 세팅</b>5영업일 · 저희가 만듭니다</div>
-        <div class="gs"><b>3 — 인수인계</b>1일 · 매뉴얼과 열쇠</div>
+      <div class="tl-line reveal">
+        <div class="st"><b>진단 · 1주</b><span>설문과 인터뷰로 범위 확정</span></div>
+        <div class="st"><b>구축 세팅 · 5영업일</b><span>저희가 만들고, 귀사는 참관만</span></div>
+        <div class="st"><b>인수인계 · 1일</b><span>시운전과 사용법 안내, 매뉴얼 이관</span></div>
       </div>
     </div>
   </section>
