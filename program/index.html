@@ -73,9 +73,6 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .nav-r .home:hover{color:var(--ink)}
 
 /* 히어로 — 확정 문구 · 이미지 시안 3종 */
-section.hv{display:none}
-body[data-v="1"] .hv1{display:flex}
-body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 .hero-h1{font-size:var(--text-hero);line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
 .hero-soft{font-family:var(--font-quote);font-weight:500;color:var(--ink-soft);margin-top:var(--s4);font-size:1.1rem}
 .cta-row{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
@@ -96,25 +93,6 @@ body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 .heroA .tl-line .st::before{content:"";position:absolute;left:calc(-1 * var(--s5) - 7px);top:24px;width:12px;height:12px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 3px oklch(0.985 0.004 85/.3)}
 .heroA .tl-line b{display:block;font-size:1.05rem;text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
 .heroA .tl-line span{color:oklch(0.9 0.012 80);font-size:var(--text-small);text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
-
-/* 시안 2 — 스플릿 포토 */
-.heroB{padding:var(--s8) 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
-.heroB .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--s7);align-items:center}
-.heroB .ph{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/3;box-shadow:0 12px 40px oklch(0.24 0.012 75/.14)}
-.heroB .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:kb 20s ease-in-out infinite alternate}
-@keyframes kb{to{transform:scale(1.12) translateY(-2.5%)}}
-.heroB .badge{position:absolute;left:var(--s4);bottom:var(--s4);background:oklch(0.985 0.004 85/.92);backdrop-filter:blur(6px);border-radius:999px;padding:8px 16px;font-weight:700;font-size:var(--text-small);color:var(--accent-strong)}
-.heroB .tlrow{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s5);color:var(--ink-soft);font-size:var(--text-small);font-weight:600}
-.heroB .tlrow .arw{color:var(--accent)}
-
-/* 시안 3 — 포토 밴드 + 겹침 카드 */
-.heroC{padding:var(--s8) 0 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 60%)}
-.heroC .band{position:relative;margin-top:var(--s6);overflow:hidden}
-.heroC .band img{width:100%;height:min(44vh,380px);object-fit:cover;object-position:50% 55%}
-.heroC .band .scrim{position:absolute;inset:0;background:linear-gradient(180deg,oklch(0.22 0.015 75/.05),oklch(0.22 0.015 75/.3))}
-.heroC .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);max-width:var(--container);margin:-56px auto 0;padding:0 20px var(--s8);position:relative;z-index:1}
-.heroC .cards .c{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s5);box-shadow:0 8px 28px oklch(0.24 0.012 75/.12);font-size:var(--text-small);color:var(--ink-soft)}
-.heroC .cards .c b{display:block;color:var(--ink);font-size:1rem;margin-bottom:2px}
 
 /* 타임라인 */
 .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s6);counter-reset:step}
@@ -205,13 +183,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 /* 리빌 */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease-out,transform .55s ease-out}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.heroB .ph img{animation:none}}
-
-/* 시안 스위처(검토용) */
-.vpick{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;display:flex;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
-.vpick span{align-self:center;font-size:.8rem;color:var(--ink-soft);padding:0 8px 0 10px;font-weight:700}
-.vpick button{min-width:40px;min-height:40px;border:none;background:transparent;border-radius:999px;font-weight:700;color:var(--ink-soft);cursor:pointer}
-.vpick button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
 /* 편집 도구 */
 .switcher{display:flex;position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
@@ -222,19 +194,17 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media (max-width:860px){
-  .heroB .grid,.bd,.oneday .box,.dl-wrap{grid-template-columns:1fr}
+  .bd,.oneday .box,.dl-wrap{grid-template-columns:1fr}
   .dl-photo img{max-height:300px}
   .heroA{min-height:auto;padding-top:var(--s8)}
   .heroA .grid{grid-template-columns:1fr;gap:var(--s6)}
-  .heroC .cards{grid-template-columns:1fr;margin-top:-40px}
   .tl,.dl-grid,.edu .mod{grid-template-columns:1fr}
   .tl{gap:var(--s7)}
   .sum{position:static}
-  .vpick span{display:none}
 }
 </style>
 </head>
-<body data-v="1">
+<body>
 
 <header class="site">
   <div class="container">
@@ -249,7 +219,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 <main id="top">
 
   <!-- 히어로 — 확정 문구 · 이미지 시안 3종 -->
-  <section class="heroA hv hv1" aria-label="프로그램 소개">
+  <section class="heroA" aria-label="프로그램 소개">
     <img class="bg" src="/img/program-hero.jpg" alt="" width="1600" height="1067" fetchpriority="high">
     <div class="scrim" aria-hidden="true"></div>
     <div class="container grid">
@@ -269,45 +239,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
       </div>
     </div>
   </section>
-  <section class="heroB hv hv2" aria-label="프로그램 소개">
-    <div class="container grid">
-      <div>
-        <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
-        <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라 돌아가는 환경입니다</h1>
-        <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
-        <div class="cta-row reveal">
-          <a class="btn" href="#contact">무료 사전 진단 신청</a>
-          <a class="btn btn-line" href="#builder">구성과 비용 보기</a>
-        </div>
-        <p class="tlrow reveal"><span>진단 1주</span><span class="arw">→</span><span>구축 세팅 5영업일</span><span class="arw">→</span><span>인수인계 1일</span></p>
-      </div>
-      <div class="ph reveal">
-        <img src="/img/return-craft.jpg" alt="화분에 식물을 옮겨 심는 두 손" width="800" height="1000" fetchpriority="high">
-        <span class="badge">2~3주 · 교육 없이 완결</span>
-      </div>
-    </div>
-  </section>
-  <section class="heroC hv hv3" aria-label="프로그램 소개">
-    <div class="container">
-      <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
-      <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
-      <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
-      <div class="cta-row reveal">
-        <a class="btn" href="#contact">무료 사전 진단 신청</a>
-        <a class="btn btn-line" href="#builder">구성과 비용 보기</a>
-      </div>
-    </div>
-    <div class="band">
-      <img src="/img/finale-dawn.jpg" alt="" width="1920" height="1000" fetchpriority="high">
-      <div class="scrim" aria-hidden="true"></div>
-    </div>
-    <div class="cards">
-      <div class="c reveal"><b>1 — 진단</b>1주 · 설문과 인터뷰로 범위 확정</div>
-      <div class="c reveal"><b>2 — 구축 세팅</b>5영업일 · 저희가 만들고 귀사는 참관</div>
-      <div class="c reveal"><b>3 — 인수인계</b>1일 · 시운전과 매뉴얼 이관</div>
-    </div>
-  </section>
-
+    
   <!-- 절차 타임라인 -->
   <section id="process" aria-label="진행 절차">
     <div class="container">
@@ -501,13 +433,6 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   </div>
 </footer>
 
-<!-- 시안 스위처 (검토용 — 확정 후 제거) -->
-<div class="vpick" role="group" aria-label="히어로 시안 선택">
-  <span>시안</span>
-  <button data-v="1" aria-pressed="true">1</button>
-  <button data-v="2" aria-pressed="false">2</button>
-  <button data-v="3" aria-pressed="false">3</button>
-</div>
 
 <!-- 페이지 도구 (기본 숨김 — 편집 시 ?edit 로 진입) -->
 <div class="switcher hidden" role="group" aria-label="페이지 도구">
@@ -523,13 +448,6 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   'use strict';
   var params=new URLSearchParams(location.search);
 
-  /* 시안 스위처 */
-  var vp=document.querySelector('.vpick');
-  function setV(v){document.body.setAttribute('data-v',v);vp.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v))});try{localStorage.setItem('ax-program-v',v)}catch(e){}}
-  vp.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setV(b.dataset.v)});
-  var v0=params.get('v')||((function(){try{return localStorage.getItem('ax-program-v')}catch(e){return null}})())||'1';
-  if(['1','2','3'].indexOf(v0)<0)v0='1';
-  setV(v0);
 
   /* 스크롤 리빌 */
   var io=new IntersectionObserver(function(es){es.forEach(function(en){en.target.classList.toggle('in',en.isIntersecting)})},{threshold:.12});
