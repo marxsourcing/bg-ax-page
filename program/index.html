@@ -72,31 +72,45 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .nav-r .home{color:var(--ink-soft)}
 .nav-r .home:hover{color:var(--ink)}
 
-/* 히어로 */
-.hero{padding:var(--s9) 0 var(--s8);border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
-.hero .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s7);align-items:center}
-.hero h1{font-size:var(--text-hero);line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
-.hero .soft{font-family:var(--font-quote);font-weight:500;color:var(--ink-soft);margin-top:var(--s4);font-size:1.1rem}
-.hero .cta-row{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
+/* 히어로 — 확정 문구 · 이미지 시안 3종 */
 .hv{display:none}
 body[data-v="1"] .hv1,body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
+.hero-h1{font-size:var(--text-hero);line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
+.hero-soft{font-family:var(--font-quote);font-weight:500;color:var(--ink-soft);margin-top:var(--s4);font-size:1.1rem}
+.cta-row{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
+.btn-ghost{background:transparent;border:1.5px solid var(--bg);color:var(--bg)}
+.btn-ghost:hover{background:oklch(1 0 0/.14);color:var(--bg)}
 
-/* 히어로 비주얼 - v1 미니 타임라인 */
-.mini-tl{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--accent);padding-left:var(--s5)}
-.mini-tl .st{position:relative;padding:var(--s3) 0}
-.mini-tl .st::before{content:"";position:absolute;left:calc(-1 * var(--s5) - 7px);top:22px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
-.mini-tl b{display:block}
-.mini-tl span{color:var(--ink-soft);font-size:var(--text-small)}
-/* v2 미니 조합 */
-.mini-opt{display:flex;flex-direction:column;gap:var(--s3)}
-.mini-opt .card{border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s4) var(--s5);display:flex;justify-content:space-between;align-items:center;gap:var(--s4)}
-.mini-opt .card.base{border-color:var(--accent);background:var(--accent-tint)}
-.mini-opt .price{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
-/* v3 산출물 칩 */
-.chips{display:flex;flex-direction:column;gap:var(--s3)}
-.chips .chip{border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s4) var(--s5)}
-.chips .chip b{display:block}
-.chips .chip span{color:var(--ink-soft);font-size:var(--text-small)}
+/* 시안 1 — 풀블리드 시네마틱 */
+.heroA{position:relative;min-height:min(78vh,700px);display:flex;align-items:flex-end;overflow:hidden;padding:var(--s9) 0 var(--s7)}
+.heroA .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.heroA .scrim{position:absolute;inset:0;background:linear-gradient(180deg,oklch(0.22 0.015 75/.16),oklch(0.22 0.015 75/.68) 80%)}
+.heroA .container{position:relative;z-index:1;width:100%}
+.heroA .eyebrow{color:oklch(0.9 0.05 80)}
+.heroA .hero-h1{color:var(--bg);text-shadow:0 1px 8px oklch(0.22 0.015 75/.5)}
+.heroA .hero-soft{color:oklch(0.93 0.01 80);text-shadow:0 1px 6px oklch(0.22 0.015 75/.5)}
+.heroA .steps{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
+.heroA .gs{flex:1;min-width:180px;background:oklch(0.985 0.004 85/.13);backdrop-filter:blur(8px);border:1px solid oklch(0.985 0.004 85/.32);border-radius:var(--r-card);padding:var(--s4) var(--s5);color:var(--bg);font-size:var(--text-small)}
+.heroA .gs b{display:block;font-size:1rem;margin-bottom:2px}
+
+/* 시안 2 — 스플릿 포토 */
+.heroB{padding:var(--s8) 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
+.heroB .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--s7);align-items:center}
+.heroB .ph{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/3;box-shadow:0 12px 40px oklch(0.24 0.012 75/.14)}
+.heroB .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:kb 20s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12) translateY(-2.5%)}}
+.heroB .badge{position:absolute;left:var(--s4);bottom:var(--s4);background:oklch(0.985 0.004 85/.92);backdrop-filter:blur(6px);border-radius:999px;padding:8px 16px;font-weight:700;font-size:var(--text-small);color:var(--accent-strong)}
+.heroB .tlrow{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s5);color:var(--ink-soft);font-size:var(--text-small);font-weight:600}
+.heroB .tlrow .arw{color:var(--accent)}
+
+/* 시안 3 — 포토 밴드 + 겹침 카드 */
+.heroC{padding:var(--s8) 0 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 60%)}
+.heroC .band{position:relative;margin-top:var(--s6);overflow:hidden}
+.heroC .band img{width:100%;height:min(44vh,380px);object-fit:cover;object-position:50% 55%}
+.heroC .band .scrim{position:absolute;inset:0;background:linear-gradient(180deg,oklch(0.22 0.015 75/.05),oklch(0.22 0.015 75/.3))}
+.heroC .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);max-width:var(--container);margin:-56px auto 0;padding:0 20px var(--s8);position:relative;z-index:1}
+.heroC .cards .c{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s5);box-shadow:0 8px 28px oklch(0.24 0.012 75/.12);font-size:var(--text-small);color:var(--ink-soft)}
+.heroC .cards .c b{display:block;color:var(--ink);font-size:1rem;margin-bottom:2px}
 
 /* 타임라인 */
 .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s6);counter-reset:step}
@@ -176,7 +190,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 /* 리빌 */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease-out,transform .55s ease-out}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.heroB .ph img{animation:none}}
 
 /* 시안 스위처(검토용) */
 .vpick{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;display:flex;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
@@ -193,7 +207,10 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media (max-width:860px){
-  .hero .grid,.bd,.oneday .box{grid-template-columns:1fr}
+  .heroB .grid,.bd,.oneday .box{grid-template-columns:1fr}
+  .heroA{min-height:auto;padding-top:var(--s8)}
+  .heroA .steps{flex-direction:column}
+  .heroC .cards{grid-template-columns:1fr;margin-top:-40px}
   .tl,.dl-grid,.edu .mod{grid-template-columns:1fr}
   .tl{gap:var(--s7)}
   .sum{position:static}
@@ -215,51 +232,61 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 
 <main id="top">
 
-  <!-- 히어로 (시안 3버전) -->
-  <section class="hero" aria-label="프로그램 소개">
+  <!-- 히어로 — 확정 문구 · 이미지 시안 3종 -->
+  <section class="heroA hv hv1" aria-label="프로그램 소개">
+    <img class="bg" src="/img/vision-dawn.jpg" alt="" width="1920" height="1200" fetchpriority="high">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
+      <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
+      <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
+      <div class="cta-row reveal">
+        <a class="btn" href="#contact">무료 사전 진단 신청</a>
+        <a class="btn btn-ghost" href="#builder">구성과 비용 보기</a>
+      </div>
+      <div class="steps reveal">
+        <div class="gs"><b>1 — 진단</b>1주 · 범위 확정</div>
+        <div class="gs"><b>2 — 구축 세팅</b>5영업일 · 저희가 만듭니다</div>
+        <div class="gs"><b>3 — 인수인계</b>1일 · 매뉴얼과 열쇠</div>
+      </div>
+    </div>
+  </section>
+  <section class="heroB hv hv2" aria-label="프로그램 소개">
     <div class="container grid">
       <div>
         <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
-        <div class="hv hv1">
-          <h1 class="reveal">진단부터 인수인계까지,<br>2~3주면 끝납니다</h1>
-          <p class="soft reveal">배우는 시간이 아니라, 쓰는 시간부터 드립니다.</p>
-        </div>
-        <div class="hv hv2">
-          <h1 class="reveal">필요한 만큼만<br>고르십시오</h1>
-          <p class="soft reveal">기본만으로 완결되고, 원하면 교육을 얹습니다.</p>
-        </div>
-        <div class="hv hv3">
-          <h1 class="reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
-          <p class="soft reveal">떠난 뒤에도 매일 쓰는 것들을 두고 갑니다.</p>
-        </div>
+        <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
+        <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
         <div class="cta-row reveal">
           <a class="btn" href="#contact">무료 사전 진단 신청</a>
           <a class="btn btn-line" href="#builder">구성과 비용 보기</a>
         </div>
+        <p class="tlrow reveal"><span>진단 1주</span><span class="arw">→</span><span>구축 세팅 5영업일</span><span class="arw">→</span><span>인수인계 1일</span></p>
       </div>
-      <div>
-        <div class="hv hv1 reveal">
-          <div class="mini-tl">
-            <div class="st"><b>진단 · 1주</b><span>설문 한 장과 인터뷰로 범위 확정</span></div>
-            <div class="st"><b>구축 세팅 · 5영업일</b><span>저희가 만들고, 귀사는 확인만</span></div>
-            <div class="st"><b>인수인계 · 1일</b><span>시운전과 사용법 안내, 매뉴얼 이관</span></div>
-          </div>
-        </div>
-        <div class="hv hv2 reveal">
-          <div class="mini-opt">
-            <div class="card base"><span>기본 패키지 — 진단·세팅·인수인계</span><span class="price">250만 원</span></div>
-            <div class="card"><span>+ 교육 라이트 3회</span><span class="price">325만 원</span></div>
-            <div class="card"><span>+ 교육 표준 5회</span><span class="price">375만 원</span></div>
-          </div>
-        </div>
-        <div class="hv hv3 reveal">
-          <div class="chips">
-            <div class="chip"><b>세팅된 AI 업무 환경</b><span>도구 설치 · 데이터 연결 · 권한과 안전장치</span></div>
-            <div class="chip"><b>세팅 명세서 · 운영 매뉴얼</b><span>무엇을 어디에 어떻게 걸었는지, 전부 문서로</span></div>
-            <div class="chip"><b>자동 보고 1종 가동</b><span>주간 보고가 메신저로 도착하기 시작합니다</span></div>
-          </div>
-        </div>
+      <div class="ph reveal">
+        <img src="/img/return-craft.jpg" alt="화분에 식물을 옮겨 심는 두 손" width="800" height="1000" fetchpriority="high">
+        <span class="badge">2~3주 · 교육 없이 완결</span>
       </div>
+    </div>
+  </section>
+  <section class="heroC hv hv3" aria-label="프로그램 소개">
+    <div class="container">
+      <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
+      <h1 class="hero-h1 reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
+      <p class="hero-soft reveal">진단부터 인수인계까지, 2~3주면 끝납니다.</p>
+      <div class="cta-row reveal">
+        <a class="btn" href="#contact">무료 사전 진단 신청</a>
+        <a class="btn btn-line" href="#builder">구성과 비용 보기</a>
+      </div>
+    </div>
+    <div class="band">
+      <img src="/img/finale-dawn.jpg" alt="" width="1920" height="1000" fetchpriority="high">
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <div class="cards">
+      <div class="c reveal"><b>1 — 진단</b>1주 · 설문과 인터뷰로 범위 확정</div>
+      <div class="c reveal"><b>2 — 구축 세팅</b>5영업일 · 저희가 만들고 귀사는 참관</div>
+      <div class="c reveal"><b>3 — 인수인계</b>1일 · 시운전과 매뉴얼 이관</div>
     </div>
   </section>
 
