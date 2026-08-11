@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프로그램 안내 — 빌더스게이트 AX</title>
+<meta name="description" content="진단부터 인수인계까지 2~3주. 기본 패키지로 완결되고, 원하면 교육을 얹습니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="빌더스게이트 AX 프로그램 — 진단부터 인수인계까지 2~3주">
+<meta property="og:description" content="기본 패키지로 완결되고, 원하면 교육을 얹습니다. 구성과 비용을 직접 확인해 보세요.">
+<meta property="og:url" content="https://ax.buildersgate.com/program/">
+<meta property="og:image" content="https://ax.buildersgate.com/img/og-card.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ax.buildersgate.com/program/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:oklch(0.985 0.004 85);
+  --bg-alt:oklch(0.958 0.007 85);
+  --ink:oklch(0.24 0.012 75);
+  --ink-soft:oklch(0.46 0.012 75);
+  --line:oklch(0.885 0.008 85);
+  --accent:oklch(0.47 0.09 63);
+  --accent-strong:oklch(0.39 0.09 63);
+  --accent-tint:oklch(0.963 0.018 80);
+  --on-accent:oklch(0.985 0.004 85);
+  --font-sans:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --font-quote:"Noto Serif KR","Apple SD Gothic Neo",serif;
+  --text-hero:clamp(1.7rem,3.8vw + .5rem,2.9rem);
+  --text-h2:clamp(1.4rem,2.2vw + .7rem,2rem);
+  --text-body:1.0625rem;
+  --text-small:.875rem;
+  --s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+  --r-btn:8px;--r-card:12px;
+  --container:1040px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);font-size:var(--text-body);line-height:1.72;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+h2{font-size:var(--text-h2);line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+.eyebrow{font-size:var(--text-small);font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:var(--s3)}
+.lead{color:var(--ink-soft);max-width:56ch;margin-top:var(--s3)}
+section{padding:var(--s8) 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:var(--r-btn);background:var(--accent);color:var(--on-accent);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer}
+.btn:hover{background:var(--accent-strong);color:var(--on-accent)}
+.btn-line{background:transparent;border:1.5px solid var(--accent);color:var(--accent)}
+.btn-line:hover{background:var(--accent-tint);color:var(--accent-strong)}
+
+/* 헤더 */
+header.site{position:sticky;top:0;z-index:40;background:oklch(0.985 0.004 85/.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .container{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.brand{display:inline-flex;align-items:center;color:var(--accent);padding:10px 10px 10px 0}
+.brand svg{height:26px;width:auto}
+.brand:hover{color:var(--accent-strong)}
+.nav-r{display:flex;align-items:center;gap:var(--s5);font-weight:600;font-size:.95rem}
+.nav-r .home{color:var(--ink-soft)}
+.nav-r .home:hover{color:var(--ink)}
+
+/* 히어로 */
+.hero{padding:var(--s9) 0 var(--s8);border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
+.hero .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s7);align-items:center}
+.hero h1{font-size:var(--text-hero);line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
+.hero .soft{font-family:var(--font-quote);font-weight:500;color:var(--ink-soft);margin-top:var(--s4);font-size:1.1rem}
+.hero .cta-row{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
+.hv{display:none}
+body[data-v="1"] .hv1,body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
+
+/* 히어로 비주얼 - v1 미니 타임라인 */
+.mini-tl{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--accent);padding-left:var(--s5)}
+.mini-tl .st{position:relative;padding:var(--s3) 0}
+.mini-tl .st::before{content:"";position:absolute;left:calc(-1 * var(--s5) - 7px);top:22px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.mini-tl b{display:block}
+.mini-tl span{color:var(--ink-soft);font-size:var(--text-small)}
+/* v2 미니 조합 */
+.mini-opt{display:flex;flex-direction:column;gap:var(--s3)}
+.mini-opt .card{border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s4) var(--s5);display:flex;justify-content:space-between;align-items:center;gap:var(--s4)}
+.mini-opt .card.base{border-color:var(--accent);background:var(--accent-tint)}
+.mini-opt .price{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* v3 산출물 칩 */
+.chips{display:flex;flex-direction:column;gap:var(--s3)}
+.chips .chip{border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s4) var(--s5)}
+.chips .chip b{display:block}
+.chips .chip span{color:var(--ink-soft);font-size:var(--text-small)}
+
+/* 타임라인 */
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s6);counter-reset:step}
+.tl .step{border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s5);position:relative}
+.tl .step::before{counter-increment:step;content:counter(step);position:absolute;top:calc(-1 * var(--s4));left:var(--s5);width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.tl .step .dur{font-size:var(--text-small);font-weight:700;color:var(--accent);letter-spacing:.06em}
+.tl .step h3{margin:var(--s2) 0 var(--s2);font-size:1.15rem}
+.tl .step p{color:var(--ink-soft);font-size:.95rem}
+.tl .step .get{margin-top:var(--s4);padding-top:var(--s3);border-top:1px dashed var(--line);font-size:var(--text-small)}
+.tl .step .get b{color:var(--accent-strong)}
+.tl-note{margin-top:var(--s5);font-family:var(--font-quote);font-weight:500;color:var(--ink-soft)}
+
+/* 받는 것 */
+.deliver{background:var(--bg-alt)}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s6)}
+.dl-grid .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s6) var(--s5)}
+.dl-grid .card h3{font-size:1.1rem;margin-bottom:var(--s3)}
+.dl-grid .card p{color:var(--ink-soft);font-size:.95rem}
+
+/* 교육 옵션 */
+.edu .mod{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s6)}
+.edu .m{border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s5);background:var(--bg)}
+.edu .m .tag{font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.08em}
+.edu .m h3{margin:var(--s2) 0;font-size:1.1rem}
+.edu .m p{color:var(--ink-soft);font-size:.95rem}
+.edu .rule{margin-top:var(--s6);background:var(--accent-tint);border-radius:var(--r-card);padding:var(--s5) var(--s6);font-family:var(--font-quote);font-weight:500}
+.edu .more{margin-top:var(--s4);color:var(--ink-soft);font-size:var(--text-small)}
+
+/* 조합기 */
+.builder{background:var(--bg-alt)}
+.bd{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);margin-top:var(--s6);align-items:start}
+.bd .opts{display:flex;flex-direction:column;gap:var(--s4)}
+.opt{display:flex;align-items:flex-start;gap:var(--s4);border:1.5px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s5);cursor:pointer;transition:border-color .15s ease}
+.opt input{margin-top:6px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt.base{border-color:var(--accent);background:var(--accent-tint);cursor:default}
+.opt .t{flex:1}
+.opt .t b{display:block}
+.opt .t span{color:var(--ink-soft);font-size:var(--text-small)}
+.opt .p{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.opt:has(input:checked){border-color:var(--accent)}
+.sum{position:sticky;top:84px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s6)}
+.sum .rowline{display:flex;justify-content:space-between;font-size:.95rem;color:var(--ink-soft);padding:4px 0}
+.sum .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:var(--s4);padding-top:var(--s4)}
+.sum .total b{font-size:2rem;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sum .btn{width:100%;margin-top:var(--s5)}
+.sum .single{margin-top:var(--s4);font-size:var(--text-small);color:var(--ink-soft)}
+.fn{margin-top:var(--s6);font-size:var(--text-small);color:var(--ink-soft)}
+
+/* 원데이 */
+.oneday .box{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--s6);background:var(--bg);margin-top:var(--s6)}
+.oneday .pr{display:flex;flex-direction:column;gap:var(--s3)}
+.oneday .pr .row{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding-bottom:var(--s3)}
+.oneday .pr b{font-variant-numeric:tabular-nums}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);padding:var(--s5) 0}
+.trust .container{display:flex;gap:var(--s5) var(--s7);flex-wrap:wrap;justify-content:center;color:var(--ink-soft);font-size:var(--text-small);font-weight:600}
+
+/* 인터루드 */
+.inter{position:relative;padding:0;min-height:min(38vh,340px);display:flex;align-items:flex-end;overflow:hidden}
+.inter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.inter .scrim{position:absolute;inset:0;background:linear-gradient(180deg,oklch(0.22 0.015 75/.1),oklch(0.22 0.015 75/.62))}
+.inter p{position:relative;z-index:1;color:var(--bg);font-family:var(--font-quote);font-weight:600;font-size:clamp(1.2rem,2.2vw + .4rem,1.7rem);padding:0 20px var(--s7);max-width:var(--container);margin:0 auto;width:100%;text-shadow:0 1px 6px oklch(0.22 0.015 75/.6)}
+
+/* CTA */
+.cta{background:var(--accent);color:var(--on-accent);text-align:left}
+.cta h2{color:var(--on-accent)}
+.cta p{color:oklch(0.94 0.01 80);max-width:56ch;margin-top:var(--s3)}
+.cta .row{display:flex;gap:var(--s4);flex-wrap:wrap;align-items:center;margin-top:var(--s6)}
+.cta .btn{background:var(--bg);color:var(--accent-strong)}
+.cta .btn:hover{background:var(--accent-tint)}
+.cta a.mail{color:oklch(0.94 0.01 80);text-decoration:underline}
+
+footer.site{border-top:1px solid var(--line);padding:var(--s6) 0}
+footer.site .container{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6);justify-content:space-between;color:var(--ink-soft);font-size:var(--text-small)}
+footer.site a{color:var(--ink-soft);text-decoration:underline}
+
+/* 리빌 */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease-out,transform .55s ease-out}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* 시안 스위처(검토용) */
+.vpick{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;display:flex;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
+.vpick span{align-self:center;font-size:.8rem;color:var(--ink-soft);padding:0 8px 0 10px;font-weight:700}
+.vpick button{min-width:40px;min-height:40px;border:none;background:transparent;border-radius:999px;font-weight:700;color:var(--ink-soft);cursor:pointer}
+.vpick button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+
+/* 편집 도구 */
+.switcher{display:flex;position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
+.switcher button{min-width:44px;min-height:44px;border:none;background:transparent;border-radius:999px;font-weight:700;font-size:.9rem;color:var(--ink-soft);cursor:pointer;padding:0 10px}
+.switcher button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.switcher.hidden{display:none}
+#toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,8px);z-index:60;background:var(--ink);color:var(--bg);font-size:var(--text-small);font-weight:600;padding:10px 18px;border-radius:var(--r-btn);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:min(92vw,480px)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:860px){
+  .hero .grid,.bd,.oneday .box{grid-template-columns:1fr}
+  .tl,.dl-grid,.edu .mod{grid-template-columns:1fr}
+  .tl{gap:var(--s6)}
+  .sum{position:static}
+  .vpick span{display:none}
+}
+</style>
+</head>
+<body data-v="1">
+
+<header class="site">
+  <div class="container">
+    <a class="brand" href="/" aria-label="BuildersGate 소개 페이지로"><svg viewBox="53 40 134 158" fill="currentColor" aria-hidden="true"><path d="M116.983 97.0308C116.963 82.9013 117.024 62.9979 116.963 53.707C117.69 40.6753 104.291 45.1073 94.8737 48.9497C71.3091 58.7489 54.4744 83.5721 53.3022 108.802V109.087C52.7565 123.358 53.1809 142.55 53.0395 158.265C53.0395 166.784 53.0395 174.835 53.0395 180.608C52.7363 190.509 53.9893 195.267 63.5485 191.953C84.9305 185.406 111.971 164.548 115.912 129.844C117.63 118.398 116.741 109.737 116.963 97.0308H116.983Z"/><path d="M164.743 61.9548L164.481 61.7085C158.099 55.7778 150.407 50.9758 142.212 47.836C135.769 45.6402 126.487 42.7877 123.688 47.7334C122.299 70.9227 123.487 159.391 123.225 186.725C123.407 198.074 143.34 194.175 151.535 194.913C165.488 194.954 181.858 196.904 186.146 179.83C187.757 166.573 186.468 152.516 186.851 138.069C187.375 107.779 187.777 83.7897 164.723 61.9138L164.743 61.9548Z"/></svg></a>
+    <nav class="nav-r">
+      <a class="home" href="/">소개</a>
+      <a href="#contact">문의하기</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 히어로 (시안 3버전) -->
+  <section class="hero" aria-label="프로그램 소개">
+    <div class="container grid">
+      <div>
+        <p class="eyebrow reveal">빌더스게이트 AX 프로그램</p>
+        <div class="hv hv1">
+          <h1 class="reveal">진단부터 인수인계까지,<br>2~3주면 끝납니다</h1>
+          <p class="soft reveal">배우는 시간이 아니라, 쓰는 시간부터 드립니다.</p>
+        </div>
+        <div class="hv hv2">
+          <h1 class="reveal">필요한 만큼만<br>고르십시오</h1>
+          <p class="soft reveal">기본만으로 완결되고, 원하면 교육을 얹습니다.</p>
+        </div>
+        <div class="hv hv3">
+          <h1 class="reveal">남는 것은 강의 노트가 아니라<br>돌아가는 환경입니다</h1>
+          <p class="soft reveal">떠난 뒤에도 매일 쓰는 것들을 두고 갑니다.</p>
+        </div>
+        <div class="cta-row reveal">
+          <a class="btn" href="#contact">무료 사전 진단 신청</a>
+          <a class="btn btn-line" href="#builder">구성과 비용 보기</a>
+        </div>
+      </div>
+      <div>
+        <div class="hv hv1 reveal">
+          <div class="mini-tl">
+            <div class="st"><b>진단 · 1주</b><span>설문 한 장과 인터뷰로 범위 확정</span></div>
+            <div class="st"><b>구축 세팅 · 5영업일</b><span>저희가 만들고, 귀사는 확인만</span></div>
+            <div class="st"><b>인수인계 · 1일</b><span>시운전과 사용법 안내, 매뉴얼 이관</span></div>
+          </div>
+        </div>
+        <div class="hv hv2 reveal">
+          <div class="mini-opt">
+            <div class="card base"><span>기본 패키지 — 진단·세팅·인수인계</span><span class="price">250만 원</span></div>
+            <div class="card"><span>+ 교육 라이트 3회</span><span class="price">325만 원</span></div>
+            <div class="card"><span>+ 교육 표준 5회</span><span class="price">375만 원</span></div>
+          </div>
+        </div>
+        <div class="hv hv3 reveal">
+          <div class="chips">
+            <div class="chip"><b>세팅된 AI 업무 환경</b><span>도구 설치 · 데이터 연결 · 권한과 안전장치</span></div>
+            <div class="chip"><b>세팅 명세서 · 운영 매뉴얼</b><span>무엇을 어디에 어떻게 걸었는지, 전부 문서로</span></div>
+            <div class="chip"><b>자동 보고 1종 가동</b><span>주간 보고가 메신저로 도착하기 시작합니다</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 절차 타임라인 -->
+  <section id="process" aria-label="진행 절차">
+    <div class="container">
+      <p class="eyebrow reveal">진행 절차</p>
+      <h2 class="reveal">세 단계, 캘린더로 2~3주</h2>
+      <div class="tl">
+        <div class="step reveal">
+          <span class="dur">1주</span>
+          <h3>진단</h3>
+          <p>설문 한 장과 인터뷰 한 번으로 귀사의 업무·데이터·권한을 파악하고, 무엇을 자동화하고 무엇을 남길지 범위를 확정합니다.</p>
+          <p class="get">받는 것 — <b>범위 확정서</b></p>
+        </div>
+        <div class="step reveal" style="transition-delay:70ms">
+          <span class="dur">5영업일</span>
+          <h3>구축 세팅</h3>
+          <p>AI 도구 설치, 데이터 연결, 업무 자동화, 안전장치까지 저희가 만듭니다. 귀사는 입회만 하시면 됩니다.</p>
+          <p class="get">받는 것 — <b>가동되는 환경</b></p>
+        </div>
+        <div class="step reveal" style="transition-delay:140ms">
+          <span class="dur">1일</span>
+          <h3>인수인계</h3>
+          <p>귀사 사무실에서 함께 시운전하고 사용법을 안내합니다. 세팅 명세서와 운영 매뉴얼을 함께 이관합니다.</p>
+          <p class="get">받는 것 — <b>매뉴얼과 열쇠</b></p>
+        </div>
+      </div>
+      <p class="tl-note reveal">여기서 완결됩니다. 교육은 원하시는 경우에만 얹는 선택입니다.</p>
+    </div>
+  </section>
+
+  <!-- 받는 것 -->
+  <section class="deliver" aria-label="인수인계 산출물">
+    <div class="container">
+      <p class="eyebrow reveal">끝나면 남는 것</p>
+      <h2 class="reveal">세 가지가 귀사에 남습니다</h2>
+      <div class="dl-grid">
+        <div class="card reveal">
+          <h3>세팅된 AI 업무 환경</h3>
+          <p>귀사 컴퓨터에서, 귀사 데이터로 돌아갑니다. 읽기 전용 권한과 승인 절차 등 안전장치가 기본값입니다.</p>
+        </div>
+        <div class="card reveal" style="transition-delay:70ms">
+          <h3>세팅 명세서 · 운영 매뉴얼</h3>
+          <p>무엇을 어디에 어떻게 연결했는지 전부 문서로 남깁니다. 담당자가 바뀌어도 운영이 끊기지 않습니다.</p>
+        </div>
+        <div class="card reveal" style="transition-delay:140ms">
+          <h3>자동 보고 1종 가동</h3>
+          <p>주간 보고 하나가 예약되어 메신저로 도착하기 시작합니다. 매일 쓰는 것이 남아야 전환입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 교육 옵션 -->
+  <section class="edu" id="edu" aria-label="교육 옵션">
+    <div class="container">
+      <p class="eyebrow reveal">교육 옵션</p>
+      <h2 class="reveal">직접 굴리고 싶은 팀을 위한 회차</h2>
+      <p class="lead reveal">회당 60분 — 지난 과제 검수 15분, 귀사 실제 데이터로 실습 35분, 다음 과제 10분. 저희는 시연하지 않습니다. 키보드는 처음부터 끝까지 귀사 손에 있습니다.</p>
+      <div class="mod">
+        <div class="m reveal">
+          <span class="tag">모듈</span>
+          <h3>환경 인수</h3>
+          <p>세팅된 환경을 내 것으로 만듭니다. 실제 데이터에 자연어로 질문하며 각자 세 건씩 직접 조회합니다.</p>
+        </div>
+        <div class="m reveal" style="transition-delay:70ms">
+          <span class="tag">모듈</span>
+          <h3>스킬 자산화</h3>
+          <p>반복 업무 하나의 판단 기준을 글로 옮겨 팀의 자산으로 만듭니다. 담당자만 알던 일이 조직의 것이 됩니다.</p>
+        </div>
+        <div class="m reveal" style="transition-delay:140ms">
+          <span class="tag">모듈</span>
+          <h3>워크플로 자립</h3>
+          <p>자동 보고의 수신처·문구·주기를 직접 수정합니다. 정기 업무가 사람 없이 돌기 시작합니다.</p>
+        </div>
+      </div>
+      <p class="more reveal">이 외 여섯 개 모듈(첫 과제 판정 · 데이터 정의 · 워크플로 채록 · 비용 통제 · AI 지시법 · 정착 점검)은 진단 결과에 따라 귀사 업무로 구성합니다. 모듈 단위 추가는 회당 25만 원입니다.</p>
+      <p class="rule reveal">숙제를 내고, 다음 회차 첫 15분에 함께 검사합니다. 그래야 남습니다.</p>
+    </div>
+  </section>
+
+  <!-- 조합기 -->
+  <section class="builder" id="builder" aria-label="구성과 비용">
+    <div class="container">
+      <p class="eyebrow reveal">구성과 비용</p>
+      <h2 class="reveal">직접 조합해 보십시오</h2>
+      <div class="bd">
+        <div class="opts reveal">
+          <label class="opt base">
+            <input type="checkbox" checked disabled aria-label="기본 패키지(항상 포함)">
+            <span class="t"><b>기본 패키지 — 진단 · 구축 세팅 · 인수인계</b><span>2~3주 · 교육 없이 완결 · 선불</span></span>
+            <span class="p">250만 원</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="edu" value="0" data-label="교육 없음" checked>
+            <span class="t"><b>교육 없음</b><span>세팅과 매뉴얼로 충분한 팀</span></span>
+            <span class="p">+0원</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="edu" value="75" data-label="교육 라이트 3회">
+            <span class="t"><b>교육 라이트 — 3회</b><span>환경 인수 → 스킬 자산화 → 워크플로 자립 · 주 1회 3주</span></span>
+            <span class="p">+75만 원</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="edu" value="125" data-label="교육 표준 5회">
+            <span class="t"><b>교육 표준 — 5회</b><span>데이터 정의와 비용 통제까지 · 주 1~2회 3~5주</span></span>
+            <span class="p">+125만 원</span>
+          </label>
+          <label class="opt">
+            <input type="radio" name="edu" value="200" data-label="교육 집중 9회">
+            <span class="t"><b>교육 집중 — 9회</b><span>전 모듈 · 다음 과제를 스스로 고르는 팀까지 · 주 2회 5주</span></span>
+            <span class="p">+200만 원</span>
+          </label>
+        </div>
+        <aside class="sum reveal" aria-live="polite">
+          <div class="rowline"><span>기본 패키지</span><span>250만 원</span></div>
+          <div class="rowline"><span id="sumEdu">교육 없음</span><span id="sumEduP">+0원</span></div>
+          <div class="total"><span>합계</span><b id="sumTotal">250만 원</b></div>
+          <a class="btn" id="sumCta" href="#contact">이 구성으로 진단 신청</a>
+          <p class="single">신청 시 선택하신 구성이 문의 내용에 담깁니다.</p>
+        </aside>
+      </div>
+      <p class="fn reveal">모든 금액은 부가세 별도이며, AI 구독·토큰 비용은 고객 명의 실비입니다. 온프레미스·다중 시스템 환경은 별도 산정합니다.</p>
+    </div>
+  </section>
+
+  <!-- 원데이 -->
+  <section class="oneday" id="oneday" aria-label="원데이 교육">
+    <div class="container">
+      <p class="eyebrow reveal">원데이 교육</p>
+      <h2 class="reveal">하루에 압축하는 팀 교육</h2>
+      <div class="box reveal">
+        <div>
+          <p>세팅 없이 교육만 필요한 조직을 위한 하루 과정입니다. 환경 인수부터 스킬 만들기, 비용 통제, AI에게 일 시키는 법까지 — 실습 중심으로 하루에 다룹니다. 대기업 사내 교육으로 진행해 온 과정입니다.</p>
+          <p class="more" style="margin-top:var(--s4);color:var(--ink-soft);font-size:var(--text-small)">사내 인프라·보안 환경(온프레미스)에서의 진행은 범위 협의 후 별도 산정합니다.</p>
+        </div>
+        <div class="pr">
+          <div class="row"><span>10인 이하</span><b>250만 원</b></div>
+          <div class="row"><span>10인 초과 · 분반</span><b>300만 원</b></div>
+          <a class="btn btn-line" href="mailto:contact@buildersgate.com?subject=%EC%9B%90%EB%8D%B0%EC%9D%B4%20%EA%B5%90%EC%9C%A1%20%EB%AC%B8%EC%9D%98">원데이 교육 문의</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 신뢰 스트립 -->
+  <div class="trust">
+    <div class="container">
+      <span>대기업 사내 원데이 교육 진행</span>
+      <span>대학 강의 이력</span>
+      <span>누적 20+ 프로젝트</span>
+      <span>온프레미스 구축 경험</span>
+    </div>
+  </div>
+
+  <!-- 인터루드 -->
+  <div class="inter" aria-hidden="true">
+    <img src="/img/product-collab.jpg" alt="" loading="lazy">
+    <div class="scrim"></div>
+    <p>도구를 남기는 것이 아니라, 쓰는 사람을 남깁니다.</p>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta" id="contact" aria-label="무료 사전 진단">
+    <div class="container">
+      <h2 class="reveal">무료 사전 진단으로 시작하십시오</h2>
+      <p class="reveal">설문 한 장과 인터뷰 한 번이면 귀사에 맞는 범위와 구성이 나옵니다. 비용 이야기는 그 다음입니다.</p>
+      <div class="row reveal">
+        <a class="btn" id="ctaMail" href="mailto:contact@buildersgate.com?subject=%EB%AC%B4%EB%A3%8C%20%EC%82%AC%EC%A0%84%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 사전 진단 신청</a>
+        <a class="mail" href="mailto:contact@buildersgate.com">contact@buildersgate.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <span>Buildersgate — 인간다움을 구현하는 AX</span>
+    <span>서울 · <a href="mailto:contact@buildersgate.com">contact@buildersgate.com</a></span>
+    <span>© 2026 Buildersgate. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- 시안 스위처 (검토용 — 확정 후 제거) -->
+<div class="vpick" role="group" aria-label="히어로 시안 선택">
+  <span>시안</span>
+  <button data-v="1" aria-pressed="true">1</button>
+  <button data-v="2" aria-pressed="false">2</button>
+  <button data-v="3" aria-pressed="false">3</button>
+</div>
+
+<!-- 페이지 도구 (기본 숨김 — 편집 시 ?edit 로 진입) -->
+<div class="switcher hidden" role="group" aria-label="페이지 도구">
+  <button id="tEdit" aria-pressed="false">편집</button>
+  <button id="tSave">저장</button>
+  <button id="tDown">받기</button>
+  <button id="tReset">원본</button>
+</div>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  'use strict';
+  var params=new URLSearchParams(location.search);
+
+  /* 시안 스위처 */
+  var vp=document.querySelector('.vpick');
+  function setV(v){document.body.setAttribute('data-v',v);vp.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v))});try{localStorage.setItem('ax-program-v',v)}catch(e){}}
+  vp.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setV(b.dataset.v)});
+  var v0=params.get('v')||((function(){try{return localStorage.getItem('ax-program-v')}catch(e){return null}})())||'1';
+  if(['1','2','3'].indexOf(v0)<0)v0='1';
+  setV(v0);
+
+  /* 스크롤 리빌 */
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){en.target.classList.toggle('in',en.isIntersecting)})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* 조합기 */
+  var fmt=function(n){return n>=10000?(n/10000)+'억 원':n+'만 원'};
+  var sumEdu=document.getElementById('sumEdu'),sumEduP=document.getElementById('sumEduP'),
+      sumTotal=document.getElementById('sumTotal'),sumCta=document.getElementById('sumCta'),
+      ctaMail=document.getElementById('ctaMail');
+  function calc(){
+    var r=document.querySelector('input[name="edu"]:checked');
+    var add=r?parseInt(r.value,10):0,label=r?r.dataset.label:'교육 없음';
+    var total=250+add;
+    sumEdu.textContent=label;
+    sumEduP.textContent='+'+add+'만 원';
+    sumTotal.textContent=fmt(total);
+    var body='구성: 기본 패키지 250만 원 / '+label+(add?' +'+add+'만 원':'')+'\n합계: '+total+'만 원 (부가세 별도)\n\n회사명: \n인원: \n먼저 해결하고 싶은 업무: ';
+    var href='mailto:contact@buildersgate.com?subject='+encodeURIComponent('무료 사전 진단 신청 — '+label)+'&body='+encodeURIComponent(body);
+    sumCta.setAttribute('href',href);
+    ctaMail.setAttribute('href',href);
+  }
+  document.querySelectorAll('input[name="edu"]').forEach(function(i){i.addEventListener('change',calc)});
+  calc();
+
+  /* 편집 도구 (구글 폼 중계 — 메인과 동일 파이프라인, 페이지 마커 포함) */
+  var FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSdupgqvVBNU3QxvYoclpwyiS6n_56hOsKEQ-m97DDlV_uAHAw/formResponse';
+  var ENTRY_PASS='entry.559603910',ENTRY_CONTENT='entry.248824569',PKEY='ax-pass',PAGE_MARK='<!--page:program-->';
+  var KEY='ax-program-edit',mainEl=document.querySelector('main');
+  var sw=document.querySelector('.switcher');
+  if(params.has('edit')){sw.classList.remove('hidden')}
+  var toast=document.getElementById('toast'),tt=null;
+  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},3200)}
+  var bEdit=document.getElementById('tEdit');
+  bEdit.addEventListener('click',function(){
+    var on=mainEl.getAttribute('contenteditable')==='true';
+    mainEl.setAttribute('contenteditable',on?'false':'true');
+    bEdit.setAttribute('aria-pressed',String(!on));
+    say(on?'편집 종료':'편집 모드 — 본문을 클릭해 수정하세요');
+    if(on){try{localStorage.setItem(KEY,mainEl.innerHTML)}catch(e){}}
+  });
+  document.getElementById('tSave').addEventListener('click',function(){
+    var pass='';try{pass=localStorage.getItem(PKEY)||''}catch(e){}
+    if(!pass){pass=prompt('저장 암구호를 입력하세요')||'';if(!pass)return;try{localStorage.setItem(PKEY,pass)}catch(e){}}
+    var content=PAGE_MARK+mainEl.innerHTML;
+    var fd=new FormData();fd.append(ENTRY_PASS,pass);fd.append(ENTRY_CONTENT,content);
+    fetch(FORM_URL,{method:'POST',mode:'no-cors',body:fd}).then(function(){say('저장 접수 — 5~7분 내 반영됩니다')}).catch(function(){say('전송 실패 — 네트워크를 확인하세요')});
+  });
+  document.getElementById('tDown').addEventListener('click',function(){
+    var doc=document.documentElement.cloneNode(true);
+    doc.querySelectorAll('.switcher').forEach(function(el){el.classList.add('hidden')});
+    doc.querySelectorAll('main[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
+    var blob=new Blob(['<!DOCTYPE html>\n'+doc.outerHTML],{type:'text/html'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='program.html';a.click();
+  });
+  document.getElementById('tReset').addEventListener('click',function(){location.reload()});
+})();
+</script>
+</body>
+</html>
