@@ -73,8 +73,9 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .nav-r .home:hover{color:var(--ink)}
 
 /* 히어로 — 확정 문구 · 이미지 시안 3종 */
-.hv{display:none}
-body[data-v="1"] .hv1,body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
+section.hv{display:none}
+body[data-v="1"] .hv1{display:flex}
+body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 .hero-h1{font-size:var(--text-hero);line-height:1.28;letter-spacing:-.015em;text-wrap:balance}
 .hero-soft{font-family:var(--font-quote);font-weight:500;color:var(--ink-soft);margin-top:var(--s4);font-size:1.1rem}
 .cta-row{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s6)}
@@ -95,6 +96,7 @@ body[data-v="1"] .hv1,body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 
 /* 시안 2 — 스플릿 포토 */
 .heroB{padding:var(--s8) 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-tint),var(--bg) 78%)}
+.heroB .hero-h1 br{display:none}
 .heroB .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--s7);align-items:center}
 .heroB .ph{position:relative;border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/3;box-shadow:0 12px 40px oklch(0.24 0.012 75/.14)}
 .heroB .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:kb 20s ease-in-out infinite alternate}
