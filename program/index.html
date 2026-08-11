@@ -17,6 +17,8 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
 <style>
@@ -42,7 +44,10 @@
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);font-size:var(--text-body);line-height:1.72;-webkit-font-smoothing:antialiased}
+section[id],div[id]{scroll-margin-top:80px}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);font-size:var(--text-body);line-height:1.72;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+p,li{text-wrap:pretty}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 img{max-width:100%;display:block}
 .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 a{color:var(--accent);text-decoration:none}
@@ -63,6 +68,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .brand svg{height:26px;width:auto}
 .brand:hover{color:var(--accent-strong)}
 .nav-r{display:flex;align-items:center;gap:var(--s5);font-weight:600;font-size:.95rem}
+.nav-r a{padding:12px 2px;display:inline-flex;align-items:center}
 .nav-r .home{color:var(--ink-soft)}
 .nav-r .home:hover{color:var(--ink)}
 
@@ -125,6 +131,7 @@ body[data-v="1"] .hv1,body[data-v="2"] .hv2,body[data-v="3"] .hv3{display:block}
 .bd .opts{display:flex;flex-direction:column;gap:var(--s4)}
 .opt{display:flex;align-items:flex-start;gap:var(--s4);border:1.5px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s5);cursor:pointer;transition:border-color .15s ease}
 .opt input{margin-top:6px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt .incl{flex:none;background:var(--accent);color:var(--on-accent);font-size:.72rem;font-weight:800;border-radius:999px;padding:4px 10px;margin-top:2px;letter-spacing:.04em}
 .opt.base{border-color:var(--accent);background:var(--accent-tint);cursor:default}
 .opt .t{flex:1}
 .opt .t b{display:block}
@@ -169,7 +176,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 /* 리빌 */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease-out,transform .55s ease-out}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
 /* 시안 스위처(검토용) */
 .vpick{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:50;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;display:flex;gap:2px;box-shadow:0 2px 12px oklch(0.24 0.012 75/.08)}
@@ -188,7 +195,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 @media (max-width:860px){
   .hero .grid,.bd,.oneday .box{grid-template-columns:1fr}
   .tl,.dl-grid,.edu .mod{grid-template-columns:1fr}
-  .tl{gap:var(--s6)}
+  .tl{gap:var(--s7)}
   .sum{position:static}
   .vpick span{display:none}
 }
@@ -271,7 +278,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
         <div class="step reveal" style="transition-delay:70ms">
           <span class="dur">5영업일</span>
           <h3>구축 세팅</h3>
-          <p>AI 도구 설치, 데이터 연결, 업무 자동화, 안전장치까지 저희가 만듭니다. 귀사는 입회만 하시면 됩니다.</p>
+          <p>AI 도구 설치, 데이터 연결, 업무 자동화, 안전장치까지 저희가 만듭니다. 귀사는 참관만 하시면 됩니다.</p>
           <p class="get">받는 것 — <b>가동되는 환경</b></p>
         </div>
         <div class="step reveal" style="transition-delay:140ms">
@@ -342,11 +349,11 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
       <h2 class="reveal">직접 조합해 보십시오</h2>
       <div class="bd">
         <div class="opts reveal">
-          <label class="opt base">
-            <input type="checkbox" checked disabled aria-label="기본 패키지(항상 포함)">
+          <div class="opt base">
+            <span class="incl">항상 포함</span>
             <span class="t"><b>기본 패키지 — 진단 · 구축 세팅 · 인수인계</b><span>2~3주 · 교육 없이 완결 · 선불</span></span>
             <span class="p">250만 원</span>
-          </label>
+          </div>
           <label class="opt">
             <input type="radio" name="edu" value="0" data-label="교육 없음" checked>
             <span class="t"><b>교육 없음</b><span>세팅과 매뉴얼로 충분한 팀</span></span>
@@ -364,14 +371,15 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           </label>
           <label class="opt">
             <input type="radio" name="edu" value="200" data-label="교육 집중 9회">
-            <span class="t"><b>교육 집중 — 9회</b><span>전 모듈 · 다음 과제를 스스로 고르는 팀까지 · 주 2회 5주</span></span>
+            <span class="t"><b>교육 집중 — 9회</b><span>전 모듈 일괄 구성가 · 다음 과제를 스스로 고르는 팀까지 · 주 2회 5주</span></span>
             <span class="p">+200만 원</span>
           </label>
         </div>
-        <aside class="sum reveal" aria-live="polite">
+        <aside class="sum reveal">
           <div class="rowline"><span>기본 패키지</span><span>250만 원</span></div>
           <div class="rowline"><span id="sumEdu">교육 없음</span><span id="sumEduP">+0원</span></div>
-          <div class="total"><span>합계</span><b id="sumTotal">250만 원</b></div>
+          <div class="total" aria-live="polite"><span>합계</span><b id="sumTotal">250만 원</b></div>
+          <p class="single" style="margin-top:var(--s2)">부가세 별도 · AI 구독·토큰은 고객 명의 실비</p>
           <a class="btn" id="sumCta" href="#contact">이 구성으로 진단 신청</a>
           <p class="single">신청 시 선택하신 구성이 문의 내용에 담깁니다.</p>
         </aside>
@@ -394,6 +402,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           <div class="row"><span>10인 이하</span><b>250만 원</b></div>
           <div class="row"><span>10인 초과 · 분반</span><b>300만 원</b></div>
           <a class="btn btn-line" href="mailto:contact@buildersgate.com?subject=%EC%9B%90%EB%8D%B0%EC%9D%B4%20%EA%B5%90%EC%9C%A1%20%EB%AC%B8%EC%9D%98">원데이 교육 문의</a>
+          <span style="font-size:var(--text-small);color:var(--ink-soft)">부가세 별도 · 세팅 없이 교육만 진행하는 단독 과정</span>
         </div>
       </div>
     </div>
@@ -410,9 +419,9 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   </div>
 
   <!-- 인터루드 -->
-  <div class="inter" aria-hidden="true">
-    <img src="/img/product-collab.jpg" alt="" loading="lazy">
-    <div class="scrim"></div>
+  <div class="inter">
+    <img src="/img/product-collab.jpg" alt="" loading="lazy" aria-hidden="true">
+    <div class="scrim" aria-hidden="true"></div>
     <p>도구를 남기는 것이 아니라, 쓰는 사람을 남깁니다.</p>
   </div>
 
@@ -473,7 +482,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
   /* 조합기 */
-  var fmt=function(n){return n>=10000?(n/10000)+'억 원':n+'만 원'};
+  var fmt=function(n){return n+'만 원'};
   var sumEdu=document.getElementById('sumEdu'),sumEduP=document.getElementById('sumEduP'),
       sumTotal=document.getElementById('sumTotal'),sumCta=document.getElementById('sumCta'),
       ctaMail=document.getElementById('ctaMail');
@@ -482,7 +491,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
     var add=r?parseInt(r.value,10):0,label=r?r.dataset.label:'교육 없음';
     var total=250+add;
     sumEdu.textContent=label;
-    sumEduP.textContent='+'+add+'만 원';
+    sumEduP.textContent=add?'+'+add+'만 원':'+0원';
     sumTotal.textContent=fmt(total);
     var body='구성: 기본 패키지 250만 원 / '+label+(add?' +'+add+'만 원':'')+'\n합계: '+total+'만 원 (부가세 별도)\n\n회사명: \n인원: \n먼저 해결하고 싶은 업무: ';
     var href='mailto:contact@buildersgate.com?subject='+encodeURIComponent('무료 사전 진단 신청 — '+label)+'&body='+encodeURIComponent(body);
