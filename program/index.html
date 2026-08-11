@@ -146,6 +146,13 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .sum .total b{font-size:2rem;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sum .btn{width:100%;margin-top:var(--s5)}
 .sum .single{margin-top:var(--s4);font-size:var(--text-small);color:var(--ink-soft)}
+.sum .promo{display:flex;gap:8px;margin-top:var(--s4)}
+.sum .promo input{flex:1;min-width:0}
+.sum input[type="text"]{min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r-btn);font:inherit;font-size:var(--text-small);background:var(--bg);color:var(--ink)}
+.sum .promo button{min-height:44px;padding:0 18px;border-radius:var(--r-btn);border:none;background:var(--accent);color:var(--on-accent);font-weight:700;cursor:pointer}
+.sum .promo button:hover{background:var(--accent-strong)}
+.sum .pdfmeta{display:flex;flex-direction:column;gap:8px;margin-top:var(--s3)}
+.sum #promoMsg.ok{color:var(--accent-strong);font-weight:600}
 .fn{margin-top:var(--s6);font-size:var(--text-small);color:var(--ink-soft)}
 
 /* 원데이 */
@@ -320,7 +327,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           <p>자동 보고의 수신처·문구·주기를 직접 수정합니다. 고치는 법까지 알면 그 업무는 귀사 것입니다.</p>
         </div></div>
       </div>
-      <p class="more reveal">이 외 여섯 개 주제(다음 과제 고르기 · 데이터 뜻 맞추기 · 업무 순서 받아 적기 · 비용 상한 관리 · AI에게 일 시키는 법 · 정착 점검)는 진단 결과에 따라 귀사 업무로 구성합니다. 회 단위 추가는 회당 25만 원입니다.</p>
+      <p class="more reveal">이 외 여섯 개 주제(다음 과제 고르기 · 데이터 뜻 맞추기 · 업무 순서 받아 적기 · 비용 상한 관리 · AI에게 일 시키는 법 · 정착 점검)는 진단 결과에 따라 귀사 업무로 구성합니다. 회 단위 추가는 회당 50만 원입니다.</p>
       <p class="rule reveal">매회 과제를 내고, 다음 회차 첫 15분에 함께 확인합니다. 그래야 남습니다.</p>
     </div>
   </section>
@@ -329,13 +336,13 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   <section class="builder" id="builder" aria-label="구성과 비용">
     <div class="container">
       <p class="eyebrow reveal">구성과 비용</p>
-      <h2 class="reveal">기본 250만 원, 교육은 선택입니다</h2>
+      <h2 class="reveal">기본 500만 원, 교육은 선택입니다</h2>
       <div class="bd">
         <div class="opts reveal">
           <div class="opt base">
             <span class="incl">항상 포함</span>
-            <span class="t"><b>기본 패키지 — 진단 · 구축 세팅 · 인수인계</b><span>2~3주 · 선불 · 세팅 보증 포함</span></span>
-            <span class="p">250만 원</span>
+            <span class="t"><b>기본 패키지 — 진단 · 세팅 · 인수인계</b><span>2~3주 · 선불 · 세팅 보증 포함</span></span>
+            <span class="p">500만 원</span>
           </div>
           <label class="opt">
             <input type="radio" name="edu" value="0" data-label="교육 없음" checked>
@@ -343,28 +350,35 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
             <span class="p">+0원</span>
           </label>
           <label class="opt">
-            <input type="radio" name="edu" value="75" data-label="교육 라이트 3회">
+            <input type="radio" name="edu" value="150" data-label="교육 라이트 3회">
             <span class="t"><b>교육 라이트 — 3회</b><span>환경 익히기 → 판단 기준 문서화 → 자동 업무 수정 · 주 1회 3주</span></span>
-            <span class="p">+75만 원</span>
+            <span class="p">+150만 원</span>
           </label>
           <label class="opt">
-            <input type="radio" name="edu" value="125" data-label="교육 표준 5회">
+            <input type="radio" name="edu" value="225" data-label="교육 표준 5회">
             <span class="t"><b>교육 표준 — 5회</b><span>데이터 뜻 맞추기와 비용 관리까지 · 주 1~2회 3~5주</span></span>
-            <span class="p">+125만 원</span>
+            <span class="p">+225만 원</span>
           </label>
           <label class="opt">
-            <input type="radio" name="edu" value="200" data-label="교육 집중 9회">
+            <input type="radio" name="edu" value="400" data-label="교육 집중 9회">
             <span class="t"><b>교육 집중 — 9회</b><span>아홉 주제 전체 일괄 구성 · 주 2회 5주</span></span>
-            <span class="p">+200만 원</span>
+            <span class="p">+400만 원</span>
           </label>
         </div>
         <aside class="sum reveal">
-          <div class="rowline"><span>기본 패키지</span><span>250만 원</span></div>
+          <div class="rowline"><span>기본 패키지</span><span>500만 원</span></div>
           <div class="rowline"><span id="sumEdu">교육 없음</span><span id="sumEduP">+0원</span></div>
-          <div class="total" aria-live="polite"><span>합계</span><b id="sumTotal">250만 원</b></div>
+          <div class="total" aria-live="polite"><span>합계</span><b id="sumTotal">500만 원</b></div>
+          <p class="single" id="promoMsg" style="margin-top:var(--s2)" hidden></p>
           <p class="single" style="margin-top:var(--s2)">부가세 별도 · AI 구독은 귀사 명의(1인 월 3만 원 안팎부터)</p>
+          <div class="promo"><input id="promoInput" type="text" placeholder="프로모션 코드" autocomplete="off" aria-label="프로모션 코드"><button id="promoBtn" type="button">적용</button></div>
+          <div class="pdfmeta">
+            <input id="qCompany" type="text" placeholder="회사명 — 견적서에 표기됩니다 (선택)">
+            <input id="qName" type="text" placeholder="담당자명 (선택)">
+          </div>
           <a class="btn" id="sumCta" href="#contact">이 구성으로 진단 신청</a>
-          <p class="single">신청 시 선택하신 구성이 문의 내용에 담깁니다.</p>
+          <button class="btn btn-line" id="pdfBtn" type="button" style="width:100%;margin-top:var(--s3)">견적서 PDF 저장</button>
+          <p class="single">신청 시 구성·견적번호가 문의 내용에 담깁니다. 무료 사전 진단을 신청하시면 10% 할인 코드를 드립니다.</p>
         </aside>
       </div>
       <p class="fn reveal">모든 금액은 부가세 별도입니다. AI 구독과 사용량 요금은 귀사 명의로 발급하며(1인 월 3만 원 안팎부터, 발급 방법과 비용 상한 설정을 함께 안내합니다), 새 시스템을 개발하는 상품이 아닙니다. 주 데이터베이스 1종과 시트·메신저 연동까지가 기본이고, 사내망(온프레미스)이나 그 이상의 연동은 진단에서 범위를 정해 별도 산정합니다.</p>
@@ -383,8 +397,8 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           <p class="more" style="margin-top:var(--s4);color:var(--ink-soft);font-size:var(--text-small)">사내 인프라·보안 환경(온프레미스)에서의 진행은 범위 협의 후 별도 산정합니다.</p>
         </div>
         <div class="pr">
-          <div class="row"><span>10인 이하</span><b>250만 원</b></div>
-          <div class="row"><span>10인 초과 · 분반</span><b>300만 원</b></div>
+          <div class="row"><span>10인 이하</span><b>350만 원</b></div>
+          <div class="row"><span>10인 초과 · 분반</span><b>500만 원</b></div>
           <a class="btn btn-line" href="mailto:contact@buildersgate.com?subject=%EC%9B%90%EB%8D%B0%EC%9D%B4%20%EA%B5%90%EC%9C%A1%20%EB%AC%B8%EC%9D%98">원데이 교육 문의</a>
           <span style="font-size:var(--text-small);color:var(--ink-soft)">부가세 별도 · 세팅 없이 교육만 진행하는 단독 과정</span>
         </div>
@@ -415,7 +429,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
     <div class="cta-scrim" aria-hidden="true"></div>
     <div class="container">
       <h2 class="reveal">무료 사전 진단으로 시작하십시오</h2>
-      <p class="reveal">짧은 설문과 30분 통화로 귀사에 맞는 구성의 밑그림을 무료로 잡아 드립니다. 견적 확정은 그 다음입니다.</p>
+      <p class="reveal">짧은 설문과 30분 통화로 귀사에 맞는 구성의 밑그림을 무료로 잡아 드립니다. 신청하신 분께는 10% 할인 코드를 드립니다. 견적 확정은 그 다음입니다.</p>
       <div class="row reveal">
         <a class="btn" id="ctaMail" href="mailto:contact@buildersgate.com?subject=%EB%AC%B4%EB%A3%8C%20%EC%82%AC%EC%A0%84%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 사전 진단 신청</a>
         <a class="mail" href="mailto:contact@buildersgate.com">contact@buildersgate.com</a>
@@ -453,25 +467,89 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   var io=new IntersectionObserver(function(es){es.forEach(function(en){en.target.classList.toggle('in',en.isIntersecting)})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
-  /* 조합기 */
-  var fmt=function(n){return n+'만 원'};
+  /* 조합기 · 프로모션 · 견적서 */
+  var BASE=500;
+  var PROMOS={'61ed69e14e1833d0ee9d099fe5e3f8f7f6f7d4ef787d88a286a8fcec8fd41800':{type:'pct',v:10,label:'상담 프로모션',exp:'2026-10-31'}};
+  var promo=null,promoCode='';
+  function sha256(str){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})}
   var sumEdu=document.getElementById('sumEdu'),sumEduP=document.getElementById('sumEduP'),
       sumTotal=document.getElementById('sumTotal'),sumCta=document.getElementById('sumCta'),
-      ctaMail=document.getElementById('ctaMail');
-  function calc(){
+      ctaMail=document.getElementById('ctaMail'),promoMsg=document.getElementById('promoMsg'),
+      promoInput=document.getElementById('promoInput'),qCompany=document.getElementById('qCompany'),qName=document.getElementById('qName');
+  function pad(n){return String(n).padStart(2,'0')}
+  function today(){var d=new Date();return {y:d.getFullYear(),m:pad(d.getMonth()+1),d:pad(d.getDate()),date:d}}
+  function quoteNo(){var t=today();return 'BG-AX-'+(promoCode?promoCode+'-':'')+t.y+t.m+t.d}
+  function state(){
     var r=document.querySelector('input[name="edu"]:checked');
     var add=r?parseInt(r.value,10):0,label=r?r.dataset.label:'교육 없음';
-    var total=250+add;
-    sumEdu.textContent=label;
-    sumEduP.textContent=add?'+'+add+'만 원':'+0원';
-    sumTotal.textContent=fmt(total);
-    var body='구성: 기본 패키지 250만 원 / '+label+(add?' +'+add+'만 원':'')+'\n합계: '+total+'만 원 (부가세 별도)\n\n회사명: \n인원: \n먼저 해결하고 싶은 업무: ';
-    var href='mailto:contact@buildersgate.com?subject='+encodeURIComponent('무료 사전 진단 신청 — '+label)+'&body='+encodeURIComponent(body);
+    var subtotal=BASE+add,disc=0;
+    if(promo){disc=promo.type==='pct'?Math.round(subtotal*promo.v/100):promo.type==='amt'?promo.v:subtotal-promo.v;if(disc<0)disc=0}
+    return {add:add,label:label,subtotal:subtotal,disc:disc,total:subtotal-disc};
+  }
+  function calc(){
+    var st=state();
+    sumEdu.textContent=st.label;
+    sumEduP.textContent=st.add?'+'+st.add+'만 원':'+0원';
+    sumTotal.textContent=st.total+'만 원';
+    if(promo){promoMsg.hidden=false;promoMsg.className='single ok';promoMsg.textContent=promo.label+' 구성가가 적용되었습니다 ('+promoCode+')'}
+    var body='견적번호: '+quoteNo()+'\n구성: 기본 패키지 500만 원 / '+st.label+(st.add?' +'+st.add+'만 원':'')+(promo?'\n프로모션: '+promoCode+' ('+promo.label+')':'')+'\n합계: '+st.total+'만 원 (부가세 별도)\n\n회사명: '+(qCompany.value||'')+'\n담당자: '+(qName.value||'')+'\n먼저 해결하고 싶은 업무: ';
+    var href='mailto:contact@buildersgate.com?subject='+encodeURIComponent('무료 사전 진단 신청 — '+st.label)+'&body='+encodeURIComponent(body);
     sumCta.setAttribute('href',href);
     ctaMail.setAttribute('href',href);
   }
+  function applyPromo(code,silent){
+    code=(code||'').trim().toUpperCase();
+    if(!code)return;
+    sha256('bgax|'+code).then(function(h){
+      var p=PROMOS[h];
+      if(!p){if(!silent){promoMsg.hidden=false;promoMsg.className='single';promoMsg.textContent='등록되지 않은 코드입니다. 코드가 없으신가요? 무료 사전 진단을 신청하시면 발급해 드립니다.'}return}
+      if(p.exp && new Date(p.exp+'T23:59:59')<new Date()){promoMsg.hidden=false;promoMsg.className='single';promoMsg.textContent='기간이 지난 코드입니다.';return}
+      promo=p;promoCode=code;
+      try{localStorage.setItem('ax-promo',code)}catch(e){}
+      calc();
+    });
+  }
+  document.getElementById('promoBtn').addEventListener('click',function(){applyPromo(promoInput.value)});
+  promoInput.addEventListener('keydown',function(e){if(e.key==='Enter')applyPromo(promoInput.value)});
   document.querySelectorAll('input[name="edu"]').forEach(function(i){i.addEventListener('change',calc)});
+  [qCompany,qName].forEach(function(i){i.addEventListener('input',calc)});
+  var savedCode=params.get('code')||((function(){try{return localStorage.getItem('ax-promo')}catch(e){return null}})());
+  if(savedCode){promoInput.value=savedCode;applyPromo(savedCode,true)}
   calc();
+
+  /* 견적서 PDF */
+  document.getElementById('pdfBtn').addEventListener('click',function(){
+    var st=state(),t=today();
+    var until=new Date(t.date.getTime()+14*86400000);
+    var untilStr=until.getFullYear()+'. '+pad(until.getMonth()+1)+'. '+pad(until.getDate())+'.';
+    var issued=t.y+'. '+t.m+'. '+t.d+'.';
+    var vat=Math.round(st.total*0.1),gross=st.total+vat;
+    var rows='<tr><td>기본 패키지 — 진단 · 세팅 · 인수인계</td><td>1식</td><td class="r">500만 원</td></tr>';
+    if(st.add)rows+='<tr><td>'+st.label+'</td><td>1식</td><td class="r">'+st.add+'만 원</td></tr>';
+    if(st.disc)rows+='<tr><td>'+promo.label+' 구성가 적용 ('+promoCode+')</td><td></td><td class="r">−'+st.disc+'만 원</td></tr>';
+    var cust=(qCompany.value||qName.value)?('<tr><th>수신</th><td>'+[qCompany.value,qName.value].filter(Boolean).join(' · ')+'</td></tr>'):'';
+    var doc='<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>빌더스게이트_AX_견적서_'+t.y+t.m+t.d+'</title><style>'
+      +'@page{size:A4;margin:18mm}body{font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo",sans-serif;color:#2b241d;margin:0;font-size:13px;line-height:1.6}'
+      +'.band{background:#7E4E1D;color:#fff;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;border-radius:8px}'
+      +'.band h1{font-size:20px;margin:0}.band svg{height:30px;fill:#fff}'
+      +'table{width:100%;border-collapse:collapse;margin-top:18px}th,td{border:1px solid #ddd3c6;padding:9px 12px;text-align:left;vertical-align:top}'
+      +'th{background:#F3EADF;font-weight:700;width:120px}.items th{width:auto;text-align:left}.r{text-align:right;font-variant-numeric:tabular-nums}'
+      +'.sumline td{border:none;padding:4px 12px}.sumline .r{font-weight:700}.gross td{font-size:15px;font-weight:800;border-top:2px solid #7E4E1D}'
+      +'.foot{margin-top:26px;color:#6b6258;font-size:11.5px;border-top:1px solid #ddd3c6;padding-top:12px}'
+      +'h2{font-size:14px;margin:22px 0 0}</style></head><body>'
+      +'<div class="band"><h1>AX 프로그램 견적서</h1><svg viewBox="53 40 134 158"><path d="M116.983 97.0308C116.963 82.9013 117.024 62.9979 116.963 53.707C117.69 40.6753 104.291 45.1073 94.8737 48.9497C71.3091 58.7489 54.4744 83.5721 53.3022 108.802V109.087C52.7565 123.358 53.1809 142.55 53.0395 158.265C53.0395 166.784 53.0395 174.835 53.0395 180.608C52.7363 190.509 53.9893 195.267 63.5485 191.953C84.9305 185.406 111.971 164.548 115.912 129.844C117.63 118.398 116.741 109.737 116.963 97.0308H116.983Z"/><path d="M164.743 61.9548L164.481 61.7085C158.099 55.7778 150.407 50.9758 142.212 47.836C135.769 45.6402 126.487 42.7877 123.688 47.7334C122.299 70.9227 123.487 159.391 123.225 186.725C123.407 198.074 143.34 194.175 151.535 194.913C165.488 194.954 181.858 196.904 186.146 179.83C187.757 166.573 186.468 152.516 186.851 138.069C187.375 107.779 187.777 83.7897 164.723 61.9138L164.743 61.9548Z"/></svg></div>'
+      +'<table><tr><th>견적번호</th><td>'+quoteNo()+'</td></tr><tr><th>발행일</th><td>'+issued+'</td></tr><tr><th>유효기간</th><td>'+untilStr+' 까지 (발행일로부터 14일)</td></tr>'+cust+'</table>'
+      +'<h2>구성 내역</h2><table class="items"><tr><th>항목</th><th style="width:60px">수량</th><th style="width:110px;text-align:right">금액</th></tr>'+rows
+      +'<tr class="sumline"><td colspan="2" class="r">공급가액</td><td class="r">'+st.total+'만 원</td></tr>'
+      +'<tr class="sumline"><td colspan="2" class="r">부가세 (10%)</td><td class="r">'+vat+'만 원</td></tr>'
+      +'<tr class="sumline gross"><td colspan="2" class="r">합계 (부가세 포함)</td><td class="r">'+gross+'만 원</td></tr></table>'
+      +'<h2>진행 절차</h2><table><tr><th style="width:auto">1. 진단 (1주)</th><td>설문·인터뷰로 범위 확정 — 범위 확정서</td></tr><tr><th>2. 세팅 (5영업일)</th><td>도구 설치·데이터 연결·업무 스킬·안전 규칙·자동 보고 — 가동되는 환경</td></tr><tr><th>3. 인수인계 (1일)</th><td>시운전·사용법 안내 — 세팅 명세서·운영 매뉴얼·관리자 권한 전달</td></tr></table>'
+      +'<p class="foot">본 견적은 유효기간 내 계약 기준입니다. AI 구독·사용량 요금은 귀사 명의 실비이며, 사내망(온프레미스)·추가 연동 환경은 별도 산정합니다.<br>Buildersgate — 인간다움을 구현하는 AX · contact@buildersgate.com · ax.buildersgate.com</p>'
+      +'<script>window.onload=function(){window.print()}<\/script></body></html>';
+    var w=window.open('','_blank');
+    if(!w){alert('팝업이 차단되었습니다. 팝업을 허용해 주세요.');return}
+    w.document.write(doc);w.document.close();
+  });
 
   /* 편집 도구 (구글 폼 중계 — 메인과 동일 파이프라인, 페이지 마커 포함) */
   var FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSdupgqvVBNU3QxvYoclpwyiS6n_56hOsKEQ-m97DDlV_uAHAw/formResponse';
