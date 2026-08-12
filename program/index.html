@@ -146,6 +146,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .sum .total b{font-size:2rem;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sum .btn{width:100%;margin-top:var(--s5)}
 .sum .single{margin-top:var(--s4);font-size:var(--text-small);color:var(--ink-soft)}
+.sum .vatnote{text-align:right;font-size:var(--text-small);color:var(--ink-soft);margin-top:4px}
 .sum .promo{display:flex;gap:8px;margin-top:var(--s4)}
 .sum .promo input{flex:1;min-width:0}
 .sum input[type="text"]{min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r-btn);font:inherit;font-size:var(--text-small);background:var(--bg);color:var(--ink)}
@@ -272,7 +273,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   <!-- 받는 것 -->
   <section class="deliver" aria-label="인수인계 산출물">
     <div class="container">
-      <p class="eyebrow reveal">끝나면 남는 것</p>
+      <p class="eyebrow reveal">진행 결과</p>
       <h2 class="reveal">끝나면 무엇이 남나요?</h2>
       <div class="dl-wrap">
       <div class="dl-photo reveal"><img src="../img/program-handover.jpg" alt="창가에서 화면을 두고 웃으며 이야기하는 두 사람" loading="lazy"></div>
@@ -356,6 +357,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           <div class="rowline"><span id="sumEdu">교육 없음</span><span id="sumEduP">+0만 원</span></div>
           <div class="rowline" id="promoRow" hidden><span id="promoLabel"></span><span id="promoAmt"></span></div>
           <div class="total" aria-live="polite"><span>합계</span><b id="sumTotal">500만 원</b></div>
+          <p class="vatnote">*부가세 별도</p>
           <div class="promo"><input id="promoInput" type="text" placeholder="프로모션 코드" autocomplete="off" aria-label="프로모션 코드"><button id="promoBtn" type="button">적용</button></div>
           <p class="single" id="promoMsg" hidden></p>
           <p class="single" style="margin-top:var(--s5)">견적서에 넣을 정보 (선택)</p>
@@ -366,8 +368,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
           <button class="btn" id="pdfBtn" type="button" style="width:100%;margin-top:var(--s4)">견적서 PDF 저장</button>
         </aside>
       </div>
-      <p class="fn reveal">모든 금액은 부가세 별도입니다.</p>
-    </div>
+      </div>
   </section>
 
   <!-- 원데이 -->
@@ -378,13 +379,13 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
       <div class="box reveal">
         <div>
           <img class="oimg" src="../img/program-oneday.jpg" alt="팀이 함께 모여 진행하는 교육 세션" loading="lazy">
-          <p>하루면 충분합니다. 아침에는 구경만 하던 사람이 저녁엔 직접 만든 자동화를 들고 돌아갑니다. 팀 전체가 같은 출발선에 서게 됩니다.</p>
+          <p>하루면 충분합니다. 아침에는 모호하던 개념이 저녁에는 직접 만든 자동화를 들고 돌아갑니다. 팀 전체가 같은 출발선에 서게 됩니다.</p>
           
         </div>
         <div class="pr">
-          <p style="color:var(--ink-soft);font-size:var(--text-small)">비용은 참여 인원과 진행 시간에 따라 달라집니다. 일정과 함께 상담해 주세요.</p>
+          <p style="color:var(--ink-soft);font-size:var(--text-small)">비용은 참여 인원과 진행 시간에 따라 달라집니다.<br>일정과 함께 상담해 주세요.</p>
           <a class="btn btn-line" href="mailto:contact@buildersgate.com?subject=%EC%9B%90%EB%8D%B0%EC%9D%B4%20%EA%B5%90%EC%9C%A1%20%EC%9D%BC%EC%A0%95%20%EC%83%81%EB%8B%B4">원데이 일정 상담하기</a>
-          <span style="font-size:var(--text-small);color:var(--ink-soft)">부가세 별도</span>
+          <span style="font-size:var(--text-small);color:var(--ink-soft)">*부가세 별도</span>
         </div>
       </div>
     </div>
