@@ -182,7 +182,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .cta a.mail{color:oklch(0.94 0.01 80);text-decoration:underline}
 
 footer.site{border-top:1px solid var(--line);padding:var(--s6) 0}
-footer.site .container{color:var(--ink-soft);font-size:var(--text-small);text-align:center}
+footer.site .container{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6);justify-content:space-between;color:var(--ink-soft);font-size:var(--text-small)}
 footer.site a{color:var(--ink-soft);text-decoration:underline}
 
 /* 리빌 */
@@ -420,7 +420,9 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 
 <footer class="site">
   <div class="container">
-    <span>Buildersgate — 인간다움을 구현하는 AX · 대표 박광호 · <a href="mailto:contact@buildersgate.com">contact@buildersgate.com</a> · © 2026</span>
+    <span>Buildersgate — 인간다움을 구현하는 AX</span>
+    <span><a href="mailto:contact@buildersgate.com">contact@buildersgate.com</a></span>
+    <span>© 2026 Buildersgate. All rights reserved.</span>
   </div>
 </footer>
 
