@@ -449,7 +449,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 
   /* 조합기 · 프로모션 · 견적서 */
   var BASE=500;
-  var PROMOS={'e7f04e3a141c17c4f0a4fd932c13d7d470611bf781f6f25a4682f88ad40bb262':{type:'pct',v:50,label:'프로모션',exp:'2026-10-31'}};
+  var PROMOS={'e7f04e3a141c17c4f0a4fd932c13d7d470611bf781f6f25a4682f88ad40bb262':{type:'pct',v:50,label:'프로모션',exp:'2026-08-26'}};
   var promo=null,promoCode='';
   var RND=Math.random().toString(36).slice(2,4).toUpperCase();
   function sha256(str){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})}
@@ -516,7 +516,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
     if(promo&&promo.exp){var pe=new Date(promo.exp+'T23:59:59');if(pe<until)until=pe}
     var supplyWon=Math.round(st.total*10000),vatWon=Math.round(supplyWon*0.1),grossWon=supplyWon+vatWon;
     var rows='<tr><td>기본 패키지 — 진단 · 세팅 · 인수인계</td><td>1식</td><td class="r">'+won(500)+'</td></tr>';
-    rows+=st.add?('<tr><td>'+st.label+'</td><td>1식</td><td class="r">'+won(st.add)+'</td></tr>'):'<tr><td>교육 옵션 — 미포함</td><td></td><td class="r">0원</td></tr>';
+    rows+=st.add?('<tr><td>추가 교육 — '+st.label+'</td><td>1식</td><td class="r">'+won(st.add)+'</td></tr>'):'<tr><td>인수인계 교육 1회 (기본 패키지 포함)</td><td>1회</td><td class="r">포함</td></tr>';
     if(st.disc)rows+='<tr><td>'+promo.label+' 구성가 적용 ('+promoCode+')</td><td></td><td class="r">−'+won(st.disc)+'</td></tr>';
     var cust=(qCompany.value||qName.value)?('<tr><th>수신</th><td>'+[qCompany.value,qName.value].filter(Boolean).join(' · ')+'</td></tr>'):'';
     var doc='<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>빌더스게이트_AX_견적서_'+t.y+t.m+t.d+'</title>'
@@ -535,7 +535,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
       +'<tr class="sumline"><td colspan="2" class="r">공급가액</td><td class="r">'+supplyWon.toLocaleString('ko-KR')+'원</td></tr>'
       +'<tr class="sumline"><td colspan="2" class="r">부가세 (10%)</td><td class="r">'+vatWon.toLocaleString('ko-KR')+'원</td></tr>'
       +'<tr class="sumline gross"><td colspan="2" class="r">합계 (부가세 포함)</td><td class="r">'+grossWon.toLocaleString('ko-KR')+'원</td></tr></table>'
-      +'<h2>진행 절차</h2><table><tr><th style="width:auto">1. 진단 (1주)</th><td>설문·인터뷰로 범위 확정 — 범위 확정서</td></tr><tr><th>2. 세팅 (5영업일)</th><td>도구 설치·데이터 연결·업무 스킬·안전 규칙·자동 보고 — 가동되는 환경</td></tr><tr><th>3. 인수인계 (1일)</th><td>시운전·사용법 안내 — 세팅 명세서·운영 매뉴얼·관리자 권한 전달</td></tr></table>'
+      +'<h2>진행 절차</h2><table><tr><th style="width:auto">1. 진단 (1주)</th><td>설문·인터뷰로 범위 확정 — 범위 확정서</td></tr><tr><th>2. 세팅 (5영업일)</th><td>도구 설치·데이터 연결·업무 스킬·안전 규칙·자동 보고 — 가동되는 환경</td></tr><tr><th>3. 인수인계 (1일)</th><td>인수인계 교육 1회 · 시운전 — 세팅 명세서·운영 매뉴얼·관리자 권한 전달</td></tr></table>'
       +'<h2>조건</h2><table><tr><th>결제</th><td>계약 시 선불</td></tr><tr><th>보증</th><td>세팅 완료 시점 기준 정상 동작 보증 · 외부 도구 정책 변경에 따른 재세팅은 별도 협의</td></tr><tr><th>실비</th><td>AI 구독·사용량 요금은 귀사 명의(월 3만 원대부터) · 사내망(온프레미스)·추가 연동은 별도 산정</td></tr></table>'
       +'<h2>공급자</h2><table><tr><th>상호</th><td>빌더스게이트</td></tr><tr><th>대표자</th><td>박광호</td></tr><tr><th>사업자등록번호</th><td>836-86-02319</td></tr><tr><th>주소</th><td>서울특별시 강남구 봉은사로 125, B107</td></tr><tr><th>연락처</th><td>contact@buildersgate.com · ax.buildersgate.com</td></tr></table>'+'<p class="foot">귀사의 업무에 맞춘 구성이며, 진단 이후 범위가 조정될 수 있습니다. 본 견적은 유효기간 내 계약 기준입니다.</p>'
       +'<script>window.onload=function(){window.print()}<\/script></body></html>';
