@@ -142,6 +142,7 @@ header.site .container{display:flex;align-items:center;justify-content:space-bet
 .opt:has(input:checked){border-color:var(--accent)}
 .sum{position:sticky;top:84px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg);padding:var(--s6)}
 .sum .rowline{display:flex;justify-content:space-between;font-size:.95rem;color:var(--ink-soft);padding:4px 0}
+.sum .rowline[hidden],.sum [hidden]{display:none}
 .sum .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:var(--s4);padding-top:var(--s4)}
 .sum .total b{font-size:2rem;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .sum .btn{width:100%;margin-top:var(--s5)}
@@ -449,7 +450,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
 
   /* 조합기 · 프로모션 · 견적서 */
   var BASE=500;
-  var PROMOS={'e7f04e3a141c17c4f0a4fd932c13d7d470611bf781f6f25a4682f88ad40bb262':{type:'pct',v:50,label:'프로모션',exp:'2026-08-26'}};
+  var PROMOS={'f31cd23d17c38d34bb1328f3a7b6cbfa4bb523fae03cf6e6f2ddd7b5b50072d7':{type:'pct',v:50,label:'프로모션',exp:'2026-08-26'}};
   var promo=null,promoCode='';
   var RND=Math.random().toString(36).slice(2,4).toUpperCase();
   function sha256(str){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})}
@@ -473,7 +474,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
     return {add:add,label:label,subtotal:subtotal,disc:disc,total:subtotal-disc};
   }
   function setMsg(text,ok){promoMsg.hidden=!text;promoMsg.className='single '+(ok?'ok':'err');promoMsg.textContent=text||''}
-  function clearPromo(){promo=null;promoCode='';try{localStorage.removeItem('ax-promo')}catch(e){}promoInput.readOnly=false;promoBtn.textContent='적용';calc()}
+  function clearPromo(){promo=null;promoCode='';try{localStorage.removeItem('ax-promo')}catch(e){}promoInput.readOnly=false;promoBtn.textContent='적용';promoRow.hidden=true;promoLabel.textContent='';promoAmt.textContent='';calc()}
   function calc(){
     var st=state();
     sumEdu.textContent=st.label;
