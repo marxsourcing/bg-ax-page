@@ -491,7 +491,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   if(ctaMail)ctaMail.addEventListener('click',function(){this.setAttribute('href',mailHref())});
   function applyPromo(code,silent){
     code=(code||'').trim().toUpperCase();
-    if(!code){clearPromo();setMsg('');return}
+    if(!code){clearPromo();setMsg(silent?'':'프로모션 코드를 입력해 주세요.',false);if(!silent)promoInput.focus();return}
     sha256('bgax|'+code).then(function(h){
       var p=PROMOS[h];
       if(!p){clearPromo();if(!silent)setMsg('등록되지 않은 코드입니다. 코드가 필요하시면 문의해 주세요.',false);return}
