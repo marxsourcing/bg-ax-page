@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /edit/
+Disallow: /program/
 
 Sitemap: https://ax.buildersgate.com/sitemap.xml
