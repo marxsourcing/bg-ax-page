@@ -462,13 +462,14 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   function pad(n){return String(n).padStart(2,'0')}
   function today(){var d=new Date();return {y:d.getFullYear(),m:pad(d.getMonth()+1),d:pad(d.getDate()),date:d}}
   function quoteNo(){var t=today();return 'BG-AX-'+(promoCode?promoCode+'-':'')+t.y+t.m+t.d+'-'+RND}
-  function won(mw){return (mw*10000).toLocaleString('ko-KR')+'원'}
+  function won(mw){return Math.round(mw*10000).toLocaleString('ko-KR')+'원'}
+  function man(v){var m=Math.floor(v+1e-9),r=Math.round((v-m)*10000);return r?m.toLocaleString('ko-KR')+'만 '+r.toLocaleString('ko-KR')+'원':m.toLocaleString('ko-KR')+'만 원'}
   function kdate(d){return d.getFullYear()+'. '+pad(d.getMonth()+1)+'. '+pad(d.getDate())+'.'}
   function state(){
     var r=document.querySelector('input[name="edu"]:checked');
     var add=r?parseInt(r.value,10):0,label=r?r.dataset.label:'교육 없음';
     var subtotal=BASE+add,disc=0;
-    if(promo){disc=promo.type==='pct'?Math.round(subtotal*promo.v/100):promo.type==='amt'?promo.v:subtotal-promo.v;if(disc<0)disc=0}
+    if(promo){disc=promo.type==='pct'?subtotal*promo.v/100:promo.type==='amt'?promo.v:subtotal-promo.v;if(disc<0)disc=0}
     return {add:add,label:label,subtotal:subtotal,disc:disc,total:subtotal-disc};
   }
   function setMsg(text,ok){promoMsg.hidden=!text;promoMsg.className='single '+(ok?'ok':'err');promoMsg.textContent=text||''}
@@ -476,14 +477,14 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
   function calc(){
     var st=state();
     sumEdu.textContent=st.label;
-    sumEduP.textContent='+'+st.add+'만 원';
-    if(promo){promoRow.hidden=false;promoLabel.textContent=promo.label+' ('+promoCode+')';promoAmt.textContent='−'+st.disc+'만 원'}
+    sumEduP.textContent='+'+man(st.add);
+    if(promo){promoRow.hidden=false;promoLabel.textContent=promo.label+' ('+promoCode+')';promoAmt.textContent='−'+man(st.disc)}
     else{promoRow.hidden=true}
-    sumTotal.textContent=st.total+'만 원';
+    sumTotal.textContent=man(st.total);
   }
   function mailHref(){
     var st=state();
-    var body='견적번호: '+quoteNo()+'\n구성: 기본 패키지 500만 원 / '+st.label+' +'+st.add+'만 원'+(promo?'\n프로모션: '+promoCode+' ('+promo.label+' −'+st.disc+'만 원)':'')+'\n합계: '+st.total+'만 원 (부가세 별도)\n\n회사명: '+(qCompany.value||'')+'\n담당자: '+(qName.value||'')+'\n먼저 해결하고 싶은 업무: ';
+    var body='견적번호: '+quoteNo()+'\n구성: 기본 패키지 500만 원 / '+st.label+' +'+man(st.add)+(promo?'\n프로모션: '+promoCode+' ('+promo.label+' −'+man(st.disc)+')':'')+'\n합계: '+man(st.total)+' (부가세 별도)\n\n회사명: '+(qCompany.value||'')+'\n담당자: '+(qName.value||'')+'\n먼저 해결하고 싶은 업무: ';
     return 'mailto:contact@buildersgate.com?subject='+encodeURIComponent('무료 사전 진단 신청 — '+st.label)+'&body='+encodeURIComponent(body);
   }
   if(ctaMail)ctaMail.addEventListener('click',function(){this.setAttribute('href',mailHref())});
@@ -513,7 +514,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
     var st=state(),t=today();
     var until=new Date(t.date.getTime()+14*86400000);
     if(promo&&promo.exp){var pe=new Date(promo.exp+'T23:59:59');if(pe<until)until=pe}
-    var vatWon=Math.round(st.total*10000*0.1),grossWon=st.total*10000+vatWon;
+    var supplyWon=Math.round(st.total*10000),vatWon=Math.round(supplyWon*0.1),grossWon=supplyWon+vatWon;
     var rows='<tr><td>기본 패키지 — 진단 · 세팅 · 인수인계</td><td>1식</td><td class="r">'+won(500)+'</td></tr>';
     rows+=st.add?('<tr><td>'+st.label+'</td><td>1식</td><td class="r">'+won(st.add)+'</td></tr>'):'<tr><td>교육 옵션 — 미포함</td><td></td><td class="r">0원</td></tr>';
     if(st.disc)rows+='<tr><td>'+promo.label+' 구성가 적용 ('+promoCode+')</td><td></td><td class="r">−'+won(st.disc)+'</td></tr>';
@@ -531,7 +532,7 @@ footer.site a{color:var(--ink-soft);text-decoration:underline}
       +'<div class="band"><h1>AX 도입 제안 및 견적</h1><svg viewBox="53 40 134 158"><path d="M116.983 97.0308C116.963 82.9013 117.024 62.9979 116.963 53.707C117.69 40.6753 104.291 45.1073 94.8737 48.9497C71.3091 58.7489 54.4744 83.5721 53.3022 108.802V109.087C52.7565 123.358 53.1809 142.55 53.0395 158.265C53.0395 166.784 53.0395 174.835 53.0395 180.608C52.7363 190.509 53.9893 195.267 63.5485 191.953C84.9305 185.406 111.971 164.548 115.912 129.844C117.63 118.398 116.741 109.737 116.963 97.0308H116.983Z"/><path d="M164.743 61.9548L164.481 61.7085C158.099 55.7778 150.407 50.9758 142.212 47.836C135.769 45.6402 126.487 42.7877 123.688 47.7334C122.299 70.9227 123.487 159.391 123.225 186.725C123.407 198.074 143.34 194.175 151.535 194.913C165.488 194.954 181.858 196.904 186.146 179.83C187.757 166.573 186.468 152.516 186.851 138.069C187.375 107.779 187.777 83.7897 164.723 61.9138L164.743 61.9548Z"/></svg></div>'
       +'<table><tr><th>견적번호</th><td>'+quoteNo()+'</td></tr><tr><th>발행일</th><td>'+kdate(t.date)+'</td></tr><tr><th>유효기간</th><td>'+kdate(until)+' 까지</td></tr>'+cust+'</table>'
       +'<h2>구성 내역</h2><table class="items"><tr><th>항목</th><th style="width:60px">수량</th><th style="width:130px;text-align:right">금액</th></tr>'+rows
-      +'<tr class="sumline"><td colspan="2" class="r">공급가액</td><td class="r">'+won(st.total)+'</td></tr>'
+      +'<tr class="sumline"><td colspan="2" class="r">공급가액</td><td class="r">'+supplyWon.toLocaleString('ko-KR')+'원</td></tr>'
       +'<tr class="sumline"><td colspan="2" class="r">부가세 (10%)</td><td class="r">'+vatWon.toLocaleString('ko-KR')+'원</td></tr>'
       +'<tr class="sumline gross"><td colspan="2" class="r">합계 (부가세 포함)</td><td class="r">'+grossWon.toLocaleString('ko-KR')+'원</td></tr></table>'
       +'<h2>진행 절차</h2><table><tr><th style="width:auto">1. 진단 (1주)</th><td>설문·인터뷰로 범위 확정 — 범위 확정서</td></tr><tr><th>2. 세팅 (5영업일)</th><td>도구 설치·데이터 연결·업무 스킬·안전 규칙·자동 보고 — 가동되는 환경</td></tr><tr><th>3. 인수인계 (1일)</th><td>시운전·사용법 안내 — 세팅 명세서·운영 매뉴얼·관리자 권한 전달</td></tr></table>'
