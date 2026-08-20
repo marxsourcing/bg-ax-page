@@ -1,15 +1,25 @@
 #!/usr/bin/env python3
 """구글 폼 중계 반영: 게시된 응답 CSV에서 페이지별 최신 제출을 읽어 해당 페이지의 <main>을 교체한다.
 content 맨 앞에 <!--page:program--> 마커가 있으면 program/index.html, 없으면 index.html 대상."""
-import csv, io, os, re, sys, urllib.request
+import csv, io, os, re, sys, time, urllib.request
 
 CSV_URL = os.environ.get("CSV_URL", "")
 PASS = os.environ.get("PASS", "").strip()
 if not CSV_URL or not PASS:
     print("시크릿 미설정 — 건너뜀"); sys.exit(0)
 
-with urllib.request.urlopen(CSV_URL, timeout=30) as r:
-    raw = r.read().decode("utf-8")
+# CSV 조회는 재시도 3회, 그래도 실패하면 조용히 종료(다음 5분 주기가 다시 시도)
+raw = None
+for attempt in range(3):
+    try:
+        with urllib.request.urlopen(CSV_URL, timeout=30) as r:
+            raw = r.read().decode("utf-8")
+        break
+    except Exception as e:
+        print(f"CSV 조회 실패({attempt+1}/3): {e}")
+        time.sleep(5)
+if raw is None:
+    print("CSV 일시 장애 — 이번 주기 건너뜀"); sys.exit(0)
 
 rows = list(csv.reader(io.StringIO(raw)))
 if len(rows) < 2:
