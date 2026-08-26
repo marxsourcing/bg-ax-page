@@ -52,11 +52,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans)
 section{background:var(--bg)}
 main>section:not(.hero-cinema):not(.interlude){position:relative;z-index:1}
 .questions,.trust{box-shadow:0 -34px 80px -28px oklch(0.24 0.012 75/.38)}
-.story-on .story{height:340svh}
-.story-on .story-vp{position:sticky;top:88px;min-height:calc(100svh - 96px);display:flex;align-items:center}
-.story-on .story .grid-3{grid-template-columns:1fr;justify-items:center}
-.story-on .story .card{grid-area:1/1;width:min(620px,100%);opacity:0;transform:translateY(36px) scale(.98);transition:opacity .45s ease,transform .6s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.story-on .story{height:280svh}
+.story-on .story-vp{position:sticky;top:80px;height:calc(100svh - 88px);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s7);align-items:center;align-content:center;overflow:hidden}
+.story-on .story .split-head{grid-template-columns:1fr;gap:var(--s5);margin-bottom:0}
+.story-on .story .split-media img{aspect-ratio:auto;height:min(34svh,330px)}
+.story-on .story .grid-3{grid-template-columns:1fr;justify-items:stretch}
+.story-on .story .card{grid-area:1/1;width:min(560px,100%);justify-self:center;opacity:0;transform:translateY(36px) scale(.98);transition:opacity .45s ease,transform .6s cubic-bezier(.22,1,.36,1);pointer-events:none}
 .story-on .story .card.act{opacity:1;transform:none;pointer-events:auto}
+@media (max-height:700px){.story-on .story .split-media{display:none}}
 p,li{text-wrap:pretty}
 h1,h2,h3{line-height:1.28;letter-spacing:-.015em;text-wrap:balance;margin:0}
 h2{font-size:var(--text-h2);font-weight:700}
@@ -720,7 +723,10 @@ main[contenteditable="true"]:focus{outline:none}
       if(sg){
         storyWrap=document.createElement('div');storyWrap.className='story';
         var svp=document.createElement('div');svp.className='story-vp';
-        sg.parentNode.insertBefore(storyWrap,sg);svp.appendChild(sg);storyWrap.appendChild(svp);
+        sg.parentNode.insertBefore(storyWrap,sg);
+        var sh=document.querySelector('.products .split-head');
+        if(sh)svp.appendChild(sh);
+        svp.appendChild(sg);storyWrap.appendChild(svp);
         storyCards=[].slice.call(sg.children);
         storyCards.forEach(function(c){c.style.transitionDelay='0ms'});
         document.documentElement.classList.add('story-on');
