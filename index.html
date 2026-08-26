@@ -54,11 +54,12 @@ main>section:not(.hero-cinema):not(.interlude){position:relative;z-index:1}
 .questions,.trust{box-shadow:0 -34px 80px -28px oklch(0.24 0.012 75/.38)}
 .story-on .story{height:200svh}
 .story-on .products{padding-top:var(--s6)}
-.story-on .story-vp{position:sticky;top:80px;display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s7);align-items:center}
-.story-on .story .split-head{grid-template-columns:1fr;gap:var(--s5);margin-bottom:0}
-.story-on .story .split-media img{aspect-ratio:auto;height:min(34svh,330px)}
+.story-on .story-vp{position:sticky;top:80px;height:calc(100svh - 80px);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s8,64px);align-items:center;padding:3svh 0}
+.story-on .story .split-head{display:flex;flex-direction:column;justify-content:center;gap:var(--s6);margin-bottom:0;height:100%;min-height:0}
+.story-on .story .split-media{flex:0 1 auto;min-height:0}
+.story-on .story .split-media img{aspect-ratio:auto;height:clamp(280px,46svh,560px)}
 .story-on .story .grid-3{grid-template-columns:1fr;justify-items:stretch}
-.story-on .story .card{grid-area:1/1;width:min(560px,100%);justify-self:center;opacity:0;transform:translateY(30px) scale(.985);transition:opacity .3s ease,transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.story-on .story .card{grid-area:1/1;width:min(600px,100%);min-height:min(58svh,600px);justify-self:center;align-self:center;padding:clamp(28px,4svh,48px);opacity:0;transform:translateY(30px) scale(.985);transition:opacity .3s ease,transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none}
 .story-on .story .card.act{opacity:1;transform:none;pointer-events:auto;z-index:1}
 @media (max-height:700px){.story-on .story .split-media{display:none}}
 p,li{text-wrap:pretty}
@@ -732,9 +733,6 @@ main[contenteditable="true"]:focus{outline:none}
         document.documentElement.classList.add('story-on');
         storyCards[0].classList.add('act');
         svp.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
-        var vpFit=function(){svp.style.top=Math.max(80,Math.round((window.innerHeight-svp.offsetHeight)/2))+'px'};
-        vpFit();addEventListener('resize',vpFit);
-        if(document.fonts&&document.fonts.ready)document.fonts.ready.then(vpFit);
       }
     }
     var storyScrub=function(){
