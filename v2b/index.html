@@ -90,6 +90,7 @@ footer{position:relative;z-index:5;background:var(--bg);color:var(--ink);padding
 .flat .bgs,.flat .hud{display:none}
 .flat .chs{position:static;display:block}
 .flat .ch{position:static;opacity:1;transform:none;visibility:visible;pointer-events:auto;padding:80px 30px;border-bottom:1px solid oklch(0.985 0.004 85/.2)}
+.flat .chrome{background:oklch(0.24 0.012 75/.85);backdrop-filter:blur(8px)}
 </style>
 </head>
 <body>
@@ -182,7 +183,7 @@ footer{position:relative;z-index:5;background:var(--bg);color:var(--ink);padding
 (function(){
 'use strict';
 var REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(REDUCE){document.documentElement.classList.add('flat');return}
+if(REDUCE||matchMedia('(max-width:820px)').matches){document.documentElement.classList.add('flat');return}
 
 var track=document.getElementById('track');
 var bgs=[].slice.call(document.querySelectorAll('.bgs .bg'));
@@ -212,9 +213,7 @@ function setChapter(i){
   if(cur===4&&!counted){counted=true;chs[4].querySelectorAll('[data-count]').forEach(count)}
 }
 
-var tick=false;
 function frame(){
-  tick=false;
   var r=track.getBoundingClientRect();
   var span=r.height-innerHeight;
   var p=Math.min(.9999,Math.max(0,-r.top/Math.max(1,span)));
@@ -223,7 +222,7 @@ function frame(){
   var bg=bgs[cur].querySelector('img');
   if(bg)bg.style.transform='scale('+(1.06+frac*.08)+') translateY('+(frac*-14)+'px)';
 }
-addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+addEventListener('scroll',frame,{passive:true});
 frame();
 
 rail.forEach(function(b,i){
