@@ -52,17 +52,6 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans)
 section{background:var(--bg)}
 main>section:not(.hero-cinema):not(.interlude){position:relative;z-index:1}
 .questions,.trust{box-shadow:0 -34px 80px -28px oklch(0.24 0.012 75/.38)}
-.story-on .story{height:200svh}
-.story-on .products{padding-top:var(--s6)}
-.story-on .story-vp{position:sticky;top:80px;height:calc(100svh - 80px);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s8,64px);align-items:center;padding:3svh 0}
-.story-on .story .split-head{display:flex;flex-direction:column;justify-content:center;gap:var(--s6);margin-bottom:0;height:100%;min-height:0}
-.story-on .story .sec-head h2{font-size:clamp(1.6rem,1.2rem + 1.6svh,2.6rem)}
-.story-on .story .split-media{flex:0 1 auto;min-height:0}
-.story-on .story .split-media img{aspect-ratio:auto;height:clamp(280px,48svh,760px)}
-.story-on .story .grid-3{grid-template-columns:1fr;justify-items:stretch}
-.story-on .story .card{grid-area:1/1;width:min(640px,100%);min-height:min(60svh,780px);justify-self:center;align-self:center;padding:clamp(28px,4svh,48px);opacity:0;transform:translateY(30px) scale(.985);transition:opacity .3s ease,transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none}
-.story-on .story .card.act{opacity:1;transform:none;pointer-events:auto;z-index:1}
-@media (max-height:700px){.story-on .story .split-media{display:none}}
 p,li{text-wrap:pretty}
 h1,h2,h3{line-height:1.28;letter-spacing:-.015em;text-wrap:balance;margin:0}
 h2{font-size:var(--text-h2);font-weight:700}
@@ -718,32 +707,6 @@ main[contenteditable="true"]:focus{outline:none}
       });
     };
     var hbg=document.querySelector('.hero-bg img');
-    /* 절차 스토리 핀 — 카드 3장이 고정 화면에서 장면 교체 */
-    var storyWrap=null,storyCards=[];
-    if(matchMedia('(min-width:720px)').matches){
-      var sg=document.querySelector('.products .grid-3');
-      if(sg){
-        storyWrap=document.createElement('div');storyWrap.className='story';
-        var svp=document.createElement('div');svp.className='story-vp';
-        sg.parentNode.insertBefore(storyWrap,sg);
-        var sh=document.querySelector('.products .split-head');
-        if(sh)svp.appendChild(sh);
-        svp.appendChild(sg);storyWrap.appendChild(svp);
-        storyCards=[].slice.call(sg.children);
-        storyCards.forEach(function(c){c.style.transitionDelay='0ms'});
-        document.documentElement.classList.add('story-on');
-        storyCards[0].classList.add('act');
-        svp.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
-      }
-    }
-    var storyScrub=function(){
-      if(!storyWrap)return;
-      var r=storyWrap.getBoundingClientRect();
-      var span=Math.max(1,r.height-window.innerHeight);
-      var p=Math.min(.999,Math.max(0,-r.top/span));
-      var idx=Math.min(storyCards.length-1,Math.floor(p*storyCards.length));
-      storyCards.forEach(function(c,i){c.classList.toggle('act',i===idx)});
-    };
     var hScrub2=function(){
       hScrub();
       if(hbg&&hOn){
@@ -751,7 +714,6 @@ main[contenteditable="true"]:focus{outline:none}
         var sy=window.scrollY,z=1.1+Math.min(sy/window.innerHeight,1)*.08;
         hbg.style.transform='translate3d(0,'+Math.min(sy*.12,40).toFixed(1)+'px,0) scale('+z.toFixed(3)+')';
       }
-      storyScrub();
     };
     addEventListener('scroll',function(){if(!hTick){hTick=true;requestAnimationFrame(hScrub2)}},{passive:true});
     hScrub2();
