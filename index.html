@@ -53,6 +53,7 @@ section{background:var(--bg)}
 main>section:not(.hero-cinema):not(.interlude){position:relative;z-index:1}
 .questions,.trust{box-shadow:0 -34px 80px -28px oklch(0.24 0.012 75/.38)}
 .story-on .story{height:200svh}
+.story-on .products{padding-top:var(--s6)}
 .story-on .story-vp{position:sticky;top:80px;display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s7);align-items:center}
 .story-on .story .split-head{grid-template-columns:1fr;gap:var(--s5);margin-bottom:0}
 .story-on .story .split-media img{aspect-ratio:auto;height:min(34svh,330px)}
@@ -664,10 +665,9 @@ main[contenteditable="true"]:focus{outline:none}
     });
     io=new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('in')}
-        else if(en.boundingClientRect.top>0){en.target.classList.remove('in')}
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}
       });
-    },{threshold:.12});
+    },{threshold:.08,rootMargin:'0px 0px -4% 0px'});
     document.querySelectorAll('.reveal').forEach(function(el){
       var r=el.getBoundingClientRect();
       if(r.top<window.innerHeight){el.classList.add('in')}
@@ -731,6 +731,7 @@ main[contenteditable="true"]:focus{outline:none}
         storyCards.forEach(function(c){c.style.transitionDelay='0ms'});
         document.documentElement.classList.add('story-on');
         storyCards[0].classList.add('act');
+        svp.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
         var vpFit=function(){svp.style.top=Math.max(80,Math.round((window.innerHeight-svp.offsetHeight)/2))+'px'};
         vpFit();addEventListener('resize',vpFit);
         if(document.fonts&&document.fonts.ready)document.fonts.ready.then(vpFit);
