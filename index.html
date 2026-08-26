@@ -301,7 +301,7 @@ main[contenteditable="true"]:focus{outline:none}
   header.site{transition:transform .32s ease}
   .sec-head h2.wr{animation:none;opacity:1;transform:none}
   .wr .wm{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-  .wr .w{display:inline-block;transform:translate3d(0,114%,0);transition:transform .85s cubic-bezier(.22,1,.36,1);transition-delay:var(--wd,0ms)}
+  .wr .w{display:inline-block;transform:translate3d(0,120%,0);transition:transform .95s cubic-bezier(.22,1,.36,1);transition-delay:var(--wd,0ms)}
   .sec-head.in h2.wr .w{transform:none}
 }
 </style>
@@ -678,7 +678,7 @@ main[contenteditable="true"]:focus{outline:none}
             if(!word)return;
             var m=document.createElement('span');m.className='wm';
             var w=document.createElement('span');w.className='w';w.textContent=word;
-            w.style.setProperty('--wd',(wi*75)+'ms');wi++;
+            w.style.setProperty('--wd',(wi*95)+'ms');wi++;
             m.appendChild(w);frag.appendChild(m);frag.appendChild(document.createTextNode(' '));
           });
         }else{frag.appendChild(n.cloneNode(false))}
@@ -696,7 +696,7 @@ main[contenteditable="true"]:focus{outline:none}
     var hScrub=function(){
       hTick=false;
       var t=Math.min(1,Math.max(0,window.scrollY/(window.innerHeight*.62)));
-      if(t<=0){if(hOn){hseq.forEach(function(el){el.style.opacity='';el.style.transform=''})}return}
+      if(t<=0){if(hOn){hseq.forEach(function(el){el.style.opacity='1';el.style.transform='none'})}return}
       if(!hOn){hOn=true;hseq.forEach(function(el){el.style.animation='none';el.style.transition='none'})}
       hseq.forEach(function(el,i){
         var a=1-hSm(hOff[i]||0,(hOff[i]||0)+.5,t);
@@ -704,7 +704,13 @@ main[contenteditable="true"]:focus{outline:none}
         el.style.transform='translate3d(0,'+((1-a)*16).toFixed(1)+'px,0)';
       });
     };
-    addEventListener('scroll',function(){if(!hTick){hTick=true;requestAnimationFrame(hScrub)}},{passive:true});
+    var hbg=document.querySelector('.hero-bg img');
+    var hScrub2=function(){
+      hScrub();
+      if(hbg&&hOn){hbg.style.animation='none';hbg.style.transform='translate3d(0,'+(window.scrollY*.14).toFixed(1)+'px,0) scale(1.1)'}
+    };
+    addEventListener('scroll',function(){if(!hTick){hTick=true;requestAnimationFrame(hScrub2)}},{passive:true});
+    if(window.scrollY>0)hScrub2();
   }
 
   /* 커서 미세 틸트 — 사진이 커서 방향으로 최대 1.8도 */
@@ -719,8 +725,8 @@ main[contenteditable="true"]:focus{outline:none}
       }
       el.addEventListener('pointermove',function(e){
         var r=el.getBoundingClientRect();
-        tx=((e.clientX-r.left)/r.width*2-1)*1.8;
-        ty=-((e.clientY-r.top)/r.height*2-1)*1.8;
+        tx=((e.clientX-r.left)/r.width*2-1)*2.4;
+        ty=-((e.clientY-r.top)/r.height*2-1)*2.4;
         if(!raf)raf=requestAnimationFrame(loop);
       });
       el.addEventListener('pointerleave',function(){tx=0;ty=0;if(!raf)raf=requestAnimationFrame(loop)});
