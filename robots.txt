@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /edit/
 Disallow: /program/
+Disallow: /legacy/
 Disallow: /v2a/
 Disallow: /v2b/
 Disallow: /v2c/
